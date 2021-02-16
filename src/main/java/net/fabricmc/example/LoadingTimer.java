@@ -18,8 +18,8 @@ public class LoadingTimer implements ModInitializer {
 	public static void load() {
 		final long timeToLoad = System.currentTimeMillis() - STARTINGTIME2;
 		final long tTLDeductor = timeToLoad/1000;
-		final double wTF = (timeToLoad - (tTLDeductor * 1000));
-		final double finalResult = tTLDeductor + (wTF / 1000);
+		final double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
+		final double finalResult = tTLDeductor + (beforeFinalResult / 1000);
 		System.out.println("Minecraft took " + finalResult + " seconds to load");
 	}
 }
