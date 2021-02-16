@@ -6,7 +6,7 @@ public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
 	public static final long startingTime = System.currentTimeMillis();
 	private static final long STARTINGTIME2 = startingTime;
-	public static int hasGameStarted = 0;
+	public static byte hasGameStarted = 0;
 	
 	@Override
 	public void onInitialize() {
