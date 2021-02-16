@@ -1,4 +1,12 @@
-# Fabric Example Mod
+# Loading timer
+
+## What is this?
+
+this is an attempt at creating my mod with fabricmc, it shows you in logs on how muck time it took to load minecraft.
+
+## How do i use it?
+
+use the Logs and then it would show you how much time it took to load minecraft
 
 ## Setup
 
