@@ -3,14 +3,14 @@
   "id": "loading-timer",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Loading Timer",
+  "description": "A Simple Tool That Lets You Know how much time It Takes for minecraft to load",
   "authors": [
-    "Me!"
+    "Blobanium"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Blobanium/Loading-Timer"
   },
 
   "license": "CC0-1.0",
