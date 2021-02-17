@@ -10,6 +10,7 @@
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
+    "issues": "https://github.com/Blobanium/Loading-Timer/issues",
     "sources": "https://github.com/Blobanium/Loading-Timer"
   },
 
@@ -19,7 +20,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.LoadingTimer"
+      "net.blobanium.example.LoadingTimer"
     ]
   },
   "mixins": [
