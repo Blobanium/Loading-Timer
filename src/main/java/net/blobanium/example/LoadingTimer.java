@@ -1,4 +1,4 @@
-package net.fabricmc.example;
+package net.blobanium.example;
 
 import net.fabricmc.api.ModInitializer;
 

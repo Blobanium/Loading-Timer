@@ -1,6 +1,6 @@
-package net.fabricmc.example.mixin;
+package net.blobanium.example.mixin;
 
-import net.fabricmc.example.LoadingTimer;
+import net.blobanium.example.LoadingTimer;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
