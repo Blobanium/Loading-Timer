@@ -1,5 +1,9 @@
 # Loading timer
 
+## Version R1 Has been postponed. (02/18/2021)
+
+Release 1 has been postponed until further notice (probably going to be another week if things dont go haywire). Due to an incident i would prefer not to discuss any further that happened this morning, i will be unable to roll out R1 today. Sadly. Thankfully no other bugs have been found so if you want to use this mod, i prefer using Release b3 for the time being. Additionally this would expand the time period for finding bugs before R1 Releases so if you find any bugs with this mod i strongly suggest that you would want to open an issue thread. Thank you for your attention.
+
 ## What is this?
 
 this is an attempt at creating my mod with fabricmc, it shows you in logs on how muck time it took to load minecraft.
