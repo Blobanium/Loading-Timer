@@ -2,7 +2,7 @@
 
 ## What is this?
 
-this is an attempt at creating my mod with fabricmc, it shows you in logs on how muck time it took to load minecraft.
+this is an attempt at creating my mod with fabricmc, it shows you in logs on how much time it took to load minecraft.
 
 ## How do i use it?
 
