@@ -19,3 +19,11 @@ For setup instructions please see the [fabric wiki page](https://fabricmc.net/wi
 ## License
 
 This Is Project is licensed under the MIT License
+
+## things i might have planned 
+
+- More precision 
+
+- Config file maybe + Mod menu config
+
+- Add Toast Notification maybe
