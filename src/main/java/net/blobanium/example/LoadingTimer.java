@@ -7,10 +7,12 @@ public class LoadingTimer implements ModInitializer {
 	public static final long startingTime = System.currentTimeMillis();
 	private static final long STARTINGTIME2 = startingTime;
 	public static byte hasGameStarted = 0;
+	public static double loadMemory = 0;
 	
 	@Override
 	public void onInitialize() {
 		System.out.println("Loading Timer Initialized");
+
 	}
 
 	public static void load() {
@@ -18,24 +20,31 @@ public class LoadingTimer implements ModInitializer {
 		// This is controlled by the variable called "hasGameStarted"
 		if(hasGameStarted == 0) {
 			hasGameStarted = 1;
-			final long timeToLoad = System.currentTimeMillis() - STARTINGTIME2;
-			final long tTLDeductor = timeToLoad/1000;
-			final double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
-			final double finalResult = tTLDeductor + (beforeFinalResult / 1000);
+			long timeToLoad = System.currentTimeMillis() - STARTINGTIME2;
+			long tTLDeductor = timeToLoad/1000;
+			double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
+			double finalResult = tTLDeductor + (beforeFinalResult / 1000);
 			System.out.println("Minecraft took " + finalResult + " seconds to initialize");
+			loadMemory = finalResult;
 		} else {
 			if(hasGameStarted == 1) {
 				hasGameStarted = 2;
-				final long timeToLoad = System.currentTimeMillis() - STARTINGTIME2;
-				final long tTLDeductor = timeToLoad/1000;
-				final double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
-				final double finalResult = tTLDeductor + (beforeFinalResult / 1000);
+				long timeToLoad = System.currentTimeMillis() - STARTINGTIME2;
+				long tTLDeductor = timeToLoad/1000;
+				double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
+				double finalResult = tTLDeductor + (beforeFinalResult / 1000);
 				System.out.println("Minecraft took " + finalResult + " seconds to Fully Load");
+				double rawLoadingTime = finalResult - loadMemory;
+				if(rawLoadingTime < 0.05){
+					System.out.println("That is " + rawLoadingTime + " seconds worth of Raw Loading time, Quite insane isn't it?");
+				} else {
+					System.out.println("That is " + rawLoadingTime + " seconds worth of Raw Loading time");
+				}
 			}
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if(!(hasGameStarted == 1 | hasGameStarted == 2)){
-			throw new IndexOutOfBoundsException("Variable hasGameStarted is out of range! Value of hasGameStarted is" + hasGameStarted + " ");
+			throw new IndexOutOfBoundsException("Variable hasGameStarted is out of range! Value is" + hasGameStarted + " ");
 		}
 	}
 }
