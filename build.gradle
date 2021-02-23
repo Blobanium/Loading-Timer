@@ -9,6 +9,18 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+repositories {
+    maven {
+        name = "hubbajub"
+        url = "https://repo.repsy.io/mvn/px01tv/hubbajub/"
+    }
+	maven {
+		name = "AperLambda"
+        url = 'https://aperlambda.github.io/maven'
+	}
+	maven { url = "https://jitpack.io" }
+}
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -20,6 +32,7 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
+	modImplementation "io.px:mcgui:1.0.0-SNAPSHOT"
 }
 
 processResources {
