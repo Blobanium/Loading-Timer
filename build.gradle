@@ -18,6 +18,9 @@ repositories {
 		name = "AperLambda"
         url = 'https://aperlambda.github.io/maven'
 	}
+	maven {
+    url = "https://dl.bintray.com/oroarmor/oroarmor"
+	}
 	maven { url = "https://jitpack.io" }
 }
 
@@ -33,6 +36,8 @@ dependencies {
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
 	modImplementation "io.px:mcgui:1.0.0-SNAPSHOT"
+	modImplementation 'com.oroarmor:oro-config:1.2.0'
+    include 'com.oroarmor:oro-config:1.2.0'
 }
 
 processResources {
@@ -55,7 +60,7 @@ tasks.withType(JavaCompile).configureEach {
 	// We'll use that if it's available, but otherwise we'll use the older option.
 	def targetVersion = 8
 	if (JavaVersion.current().isJava9Compatible()) {
-		 it.options.release = targetVersion
+		it.options.release = targetVersion
 	}
 }
 
