@@ -20,10 +20,10 @@ For setup instructions please see the [fabric wiki page](https://fabricmc.net/wi
 
 This Is Project is licensed under the MIT License
 
-## things i might have planned 
+## things i might have planned
 
-- More precision 
+- ~~Add Toast Notification maybe~~ DONE! as of commit 1ca4b9d
+
+- More precision
 
 - Config file maybe + Mod menu config
-
-- Add Toast Notification maybe
