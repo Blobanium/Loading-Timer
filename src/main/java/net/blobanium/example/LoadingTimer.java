@@ -1,6 +1,9 @@
 package net.blobanium.example;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.toast.SystemToast;
+import net.minecraft.text.LiteralText;
 
 public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
@@ -39,6 +42,10 @@ public class LoadingTimer implements ModInitializer {
 				} else {
 					System.out.println("That is " + rawLoadingTime + " seconds worth of Raw Loading time");
 				}
+				// Send A System toast Once its done loading
+				SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT,
+                new LiteralText("Minecraft startup"), new LiteralText("Minecraft took " + finalResult + " seconds to load"));
+        		MinecraftClient.getInstance().getToastManager().add(toast);
 			}
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
