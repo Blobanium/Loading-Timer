@@ -2,7 +2,7 @@
 
 ## What is this?
 
-this is an attempt at creating my mod with fabricmc, it shows you in logs on how much time it took to load minecraft.
+this is an attempt at creating my mod with fabricmc, it shows you in logs or on a toast notif at startup on how much time it took to load minecraft.
 
 ## What inspired me to make this mod?
 
