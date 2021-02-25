@@ -42,9 +42,12 @@ public class LoadingTimer implements ModInitializer {
 				} else {
 					System.out.println("That is " + rawLoadingTime + " seconds worth of Raw Loading time");
 				}
+			    double roundedVariableOutput1 = finalResult*1000;
+				double roundedVariableOutput2 = Math.round(roundedVariableOutput1);
+				double roundedVariableOutput3 = roundedVariableOutput2/1000;
 				// Send A System toast Once its done loading
 				SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT,
-                new LiteralText("Minecraft startup"), new LiteralText("Minecraft took " + finalResult + " seconds to load"));
+                new LiteralText("Minecraft startup"), new LiteralText("Minecraft took " + roundedVariableOutput3 + " seconds to load"));
         		MinecraftClient.getInstance().getToastManager().add(toast);
 			}
 		}
