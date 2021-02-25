@@ -12,7 +12,6 @@ public class LoadingTimer implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		System.out.println("Loading Timer Initialized");
-
 	}
 
 	public static void load() {

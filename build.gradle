@@ -19,9 +19,8 @@ repositories {
         url = 'https://aperlambda.github.io/maven'
 	}
 	maven {
-    url = "https://dl.bintray.com/oroarmor/oroarmor"
+	url = "https://jitpack.io"
 	}
-	maven { url = "https://jitpack.io" }
 }
 
 dependencies {
@@ -36,8 +35,6 @@ dependencies {
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
 	modImplementation "io.px:mcgui:1.0.0-SNAPSHOT"
-	modImplementation 'com.oroarmor:oro-config:1.2.0'
-    include 'com.oroarmor:oro-config:1.2.0'
 }
 
 processResources {
