@@ -43,7 +43,7 @@ public class LoadingTimer implements ModInitializer {
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if(!(hasGameStarted == 1 | hasGameStarted == 2)){
-			throw new IndexOutOfBoundsException("Variable hasGameStarted is out of range! Value is" + hasGameStarted + " ");
+			throw new IndexOutOfBoundsException("Invalid Value for byte hasGameStarted has been given: " + hasGameStarted + " ");
 		}
 	}
 }
