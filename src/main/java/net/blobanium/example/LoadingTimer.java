@@ -2,6 +2,8 @@ package net.blobanium.example;
 
 import net.blobanium.example.toast.ToastExecutor;
 import net.blobanium.example.util.MathUtil;
+import net.blobanium.example.util.TimeLogger;
+
 import net.fabricmc.api.ModInitializer;
 
 public class LoadingTimer implements ModInitializer {
@@ -22,17 +24,17 @@ public class LoadingTimer implements ModInitializer {
 		double finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		if(hasGameStarted == 0) {
 			hasGameStarted = 1;
-			System.out.println("Minecraft took " + finalResult + " seconds to initialize");
+			TimeLogger.loggerMessage(1, finalResult, "");
 			loadMemory = finalResult;
 		} else {
 			if(hasGameStarted == 1) {
 				hasGameStarted = 2;
-				System.out.println("Minecraft took " + finalResult + " seconds to Fully Load");
+				TimeLogger.loggerMessage(2, finalResult, "");
 				double rawLoadingTime = finalResult - loadMemory;
 				if(rawLoadingTime < 0.05){
-					System.out.println("That is " + rawLoadingTime + " seconds worth of Raw Loading time, Quite insane isn't it?");
+				TimeLogger.loggerMessage(3, rawLoadingTime, ", Quite insane isn't it?");
 				} else {
-					System.out.println("That is " + rawLoadingTime + " seconds worth of Raw Loading time");
+				TimeLogger.loggerMessage(3, rawLoadingTime, "");
 				}
 				double finalResultToast = MathUtil.toastCalc(finalResult);
 				// Send A System toast Once its done loading
