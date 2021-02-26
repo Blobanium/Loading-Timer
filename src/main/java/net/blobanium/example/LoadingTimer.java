@@ -1,6 +1,7 @@
 package net.blobanium.example;
 
 import net.fabricmc.api.ModInitializer;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.text.LiteralText;
