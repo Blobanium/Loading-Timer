@@ -1,7 +1,7 @@
 package net.blobanium.example;
 
 import net.blobanium.example.toast.ToastExecutor;
-
+import net.blobanium.example.util.MathUtil;
 import net.fabricmc.api.ModInitializer;
 
 public class LoadingTimer implements ModInitializer {
@@ -19,21 +19,14 @@ public class LoadingTimer implements ModInitializer {
 	public static void load() {
 		// The "Load" Procedure Runs twice, one for initialization and the other for loading completely
 		// This is controlled by the variable called "hasGameStarted"
+		double finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		if(hasGameStarted == 0) {
 			hasGameStarted = 1;
-			long timeToLoad = System.currentTimeMillis() - STARTINGTIME2;
-			long tTLDeductor = timeToLoad/1000;
-			double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
-			double finalResult = tTLDeductor + (beforeFinalResult / 1000);
 			System.out.println("Minecraft took " + finalResult + " seconds to initialize");
 			loadMemory = finalResult;
 		} else {
 			if(hasGameStarted == 1) {
 				hasGameStarted = 2;
-				long timeToLoad = System.currentTimeMillis() - STARTINGTIME2;
-				long tTLDeductor = timeToLoad/1000;
-				double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
-				double finalResult = tTLDeductor + (beforeFinalResult / 1000);
 				System.out.println("Minecraft took " + finalResult + " seconds to Fully Load");
 				double rawLoadingTime = finalResult - loadMemory;
 				if(rawLoadingTime < 0.05){
@@ -41,11 +34,9 @@ public class LoadingTimer implements ModInitializer {
 				} else {
 					System.out.println("That is " + rawLoadingTime + " seconds worth of Raw Loading time");
 				}
-			    double roundedVariableOutput1 = finalResult*1000;
-				double roundedVariableOutput2 = Math.round(roundedVariableOutput1);
-				double roundedVariableOutput3 = roundedVariableOutput2/1000;
+				double finalResultToast = MathUtil.toastCalc(finalResult);
 				// Send A System toast Once its done loading
-				ToastExecutor.executeToast(roundedVariableOutput3);
+				ToastExecutor.executeToast(finalResultToast);
 			}
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
