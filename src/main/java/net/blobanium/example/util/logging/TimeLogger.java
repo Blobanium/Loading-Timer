@@ -1,4 +1,4 @@
-package net.blobanium.example.util;
+package net.blobanium.example.util.logging;
 
 public class TimeLogger {
     public static void loggerMessage(int messageSelector, double variable, String extraText){

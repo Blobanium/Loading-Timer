@@ -1,8 +1,8 @@
 package net.blobanium.example;
 
 import net.blobanium.example.toast.ToastExecutor;
-import net.blobanium.example.util.MathUtil;
-import net.blobanium.example.util.TimeLogger;
+import net.blobanium.example.util.math.MathUtil;
+import net.blobanium.example.util.logging.TimeLogger;
 
 import net.fabricmc.api.ModInitializer;
 

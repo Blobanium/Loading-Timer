@@ -1,4 +1,4 @@
-package net.blobanium.example.util;
+package net.blobanium.example.util.math;
 
 public class MathUtil {
 
