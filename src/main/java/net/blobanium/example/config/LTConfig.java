@@ -12,7 +12,7 @@ import me.shedaniel.autoconfig.ConfigData;
 
 public class LTConfig {
     @Config(name = "loading-timer")
-    class ModConfig implements ConfigData {
+    public class ModConfig implements ConfigData {
         boolean toggleA = true;
         boolean toggleB = false;
 

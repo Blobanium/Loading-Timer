@@ -3,8 +3,12 @@ package net.blobanium.example;
 import net.blobanium.example.toast.ToastExecutor;
 import net.blobanium.example.util.math.MathUtil;
 import net.blobanium.example.util.logging.TimeLogger;
+import net.blobanium.example.config.LTConfig;
 
 import net.fabricmc.api.ModInitializer;
+
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 
 public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
