@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "net.blobanium.example.LoadingTimer"
+    ],
+    "modmenu": [
+      "net.blobanium.example.config.LTConfigModMenu"
     ]
   },
   "mixins": [

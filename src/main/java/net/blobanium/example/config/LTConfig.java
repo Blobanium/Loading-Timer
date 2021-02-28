@@ -6,6 +6,8 @@ import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.ConfigHolder;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 
 /* ATTENTION!
 // This Is The Example from the autoconfig wiki by shedaniel
@@ -29,5 +31,8 @@ public class LTConfig {
             int a = 0;
             int b = 1;
         }
+    }
+
+    public static void init() {
     }
 }
