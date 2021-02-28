@@ -20,6 +20,7 @@ public class LoadingTimer implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		AutoConfig.register(LTConfig.ModConfig.class, GsonConfigSerializer::new);
+		LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
 		System.out.println("Loading Timer Initialized");
 	}
 
