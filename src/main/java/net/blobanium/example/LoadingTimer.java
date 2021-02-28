@@ -3,12 +3,9 @@ package net.blobanium.example;
 import net.blobanium.example.toast.ToastExecutor;
 import net.blobanium.example.util.math.MathUtil;
 import net.blobanium.example.util.logging.TimeLogger;
-import net.blobanium.example.config.LTConfig;
+import net.blobanium.example.config.LTConfigInit;
 
 import net.fabricmc.api.ModInitializer;
-
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 
 public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
@@ -19,8 +16,7 @@ public class LoadingTimer implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		AutoConfig.register(LTConfig.ModConfig.class, GsonConfigSerializer::new);
-		LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
+		LTConfigInit.init();
 		System.out.println("Loading Timer Initialized");
 	}
 

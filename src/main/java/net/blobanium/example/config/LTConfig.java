@@ -1,8 +1,11 @@
 package net.blobanium.example.config;
 
+import net.blobanium.example.LoadingTimer;
+
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.ConfigHolder;
 
 /* ATTENTION!
 // This Is The Example from the autoconfig wiki by shedaniel
