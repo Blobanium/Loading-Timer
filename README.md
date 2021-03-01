@@ -1,5 +1,7 @@
 # Loading timer
 
+Find us on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/loading-timer) and on [Modrinth](https://modrinth.com/mod/loading-timer)!
+
 ## What is this?
 
 this is an attempt at creating my mod with fabricmc, it shows you in logs or on a toast notif at startup on how much time it took to load minecraft.
