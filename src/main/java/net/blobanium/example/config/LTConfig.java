@@ -15,8 +15,7 @@ public class LTConfig {
 
     @Config(name = "loadingtimer")
     public class ModConfig implements ConfigData {
-        public boolean toggleA = true;
-        public boolean toggleB = false;
+        public boolean insanePrecision = false;
     }
 
     public static void init() {

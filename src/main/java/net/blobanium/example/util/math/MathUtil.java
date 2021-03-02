@@ -1,18 +1,34 @@
 package net.blobanium.example.util.math;
 
+import net.blobanium.example.config.LTConfig;
+
+import me.shedaniel.autoconfig.AutoConfig;
+
 public class MathUtil {
+    public static int tenMulti = 1000;
+
     public static double calculateMain(long startingTimeMathUtil) {
+        LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
+		if(config.insanePrecision){
+            tenMulti = 1000000000;
+            long timeToLoad = System.nanoTime() - startingTimeMathUtil;
+            long tTLDeductor = timeToLoad/tenMulti;
+            double beforeFinalResult = (timeToLoad - (tTLDeductor * tenMulti));
+            double finalResultMath = tTLDeductor + (beforeFinalResult / tenMulti);
+            return finalResultMath;
+        } else {
         long timeToLoad = System.currentTimeMillis() - startingTimeMathUtil;
-		long tTLDeductor = timeToLoad/1000;
-		double beforeFinalResult = (timeToLoad - (tTLDeductor * 1000));
-		double finalResultMath = tTLDeductor + (beforeFinalResult / 1000);
+		long tTLDeductor = timeToLoad/tenMulti;
+		double beforeFinalResult = (timeToLoad - (tTLDeductor * tenMulti));
+		double finalResultMath = tTLDeductor + (beforeFinalResult / tenMulti);
         return finalResultMath;
+        }
     }
 
     public static double toastCalc(double finalResult){
-        double roundedVariableOutput1 = finalResult*1000;
+        double roundedVariableOutput1 = finalResult*tenMulti;
         double roundedVariableOutput2 = Math.round(roundedVariableOutput1);
-        double roundedVariableOutput3 = roundedVariableOutput2/1000;
+        double roundedVariableOutput3 = roundedVariableOutput2/tenMulti;
         return roundedVariableOutput3;
     }
 }

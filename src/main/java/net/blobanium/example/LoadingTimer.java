@@ -12,20 +12,24 @@ import net.fabricmc.api.ModInitializer;
 public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
 	public static final long startingTime = System.currentTimeMillis();
-	private static final long STARTINGTIME2 = startingTime;
+	public static final long startingTimeNano = System.nanoTime();
+	private static long STARTINGTIME2 = startingTime;
 	public static byte hasGameStarted = 0;
 	public static double loadMemory = 0;
 	
 	@Override
 	public void onInitialize() {
 		LTConfig.init();
-		initConfig();
 		System.out.println("Loading Timer Initialized");
 	}
 
 	public static void load() {
 		// The "Load" Procedure Runs twice, one for initialization and the other for loading completely
 		// This is controlled by the variable called "hasGameStarted"
+		LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
+		if(config.insanePrecision){
+			STARTINGTIME2 = startingTimeNano;
+		}
 		double finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		if(hasGameStarted == 0) {
 			hasGameStarted = 1;
@@ -49,15 +53,6 @@ public class LoadingTimer implements ModInitializer {
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if(!(hasGameStarted == 1 | hasGameStarted == 2)){
 			throw new IndexOutOfBoundsException("Invalid Value for byte hasGameStarted has been given: " + hasGameStarted + " ");
-		}
-	}
-
-	public void initConfig(){
-		LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
-		if(config.toggleA){
-			System.out.println("toggleA Is On");
-		} else {
-			System.out.println("toggleA Is Off");
 		}
 	}
 }
