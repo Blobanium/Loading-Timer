@@ -5,6 +5,8 @@ import net.blobanium.example.util.math.MathUtil;
 import net.blobanium.example.util.logging.TimeLogger;
 import net.blobanium.example.config.LTConfig;
 
+import me.shedaniel.autoconfig.AutoConfig;
+
 import net.fabricmc.api.ModInitializer;
 
 public class LoadingTimer implements ModInitializer {
@@ -17,6 +19,7 @@ public class LoadingTimer implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LTConfig.init();
+		initConfig();
 		System.out.println("Loading Timer Initialized");
 	}
 
@@ -46,6 +49,15 @@ public class LoadingTimer implements ModInitializer {
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if(!(hasGameStarted == 1 | hasGameStarted == 2)){
 			throw new IndexOutOfBoundsException("Invalid Value for byte hasGameStarted has been given: " + hasGameStarted + " ");
+		}
+	}
+
+	public void initConfig(){
+		LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
+		if(config.toggleA){
+			System.out.println("toggleA Is On");
+		} else {
+			System.out.println("toggleA Is Off");
 		}
 	}
 }

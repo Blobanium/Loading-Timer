@@ -3,6 +3,7 @@ package net.blobanium.example.config;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import me.shedaniel.autoconfig.util.fabric.UtilsImpl;
 
@@ -14,8 +15,8 @@ public class LTConfig {
 
     @Config(name = "loadingtimer")
     public class ModConfig implements ConfigData {
-        boolean insanePrecision = true;
-        boolean toggleB = false;
+        public boolean toggleA = true;
+        public boolean toggleB = false;
     }
 
     public static void init() {
@@ -44,8 +45,10 @@ public class LTConfig {
     }
 
     public static void registerConfig() {
-        AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
-        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-        System.out.println("config: " + config);
+        ConfigHolder<ModConfig> holder = AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
+        System.out.println("holder: " + holder);
+    }
+
+    public static void loadConfig() {
     }
 }
