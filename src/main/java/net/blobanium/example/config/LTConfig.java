@@ -11,9 +11,6 @@ import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import me.shedaniel.autoconfig.util.fabric.UtilsImpl;
 
 import java.io.File;
-import java.nio.file.Path;
-
-import com.google.gson.Gson;
 
 /* ATTENTION!
 // This Is The Example from the autoconfig wiki by shedaniel
@@ -47,10 +44,10 @@ public class LTConfig {
             ConfigHolder<ModConfig> holder = AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
             ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
         } catch (RuntimeException e) {
-            Path LTConfigPath = UtilsImpl.getConfigFolder().resolve("loadingtimer.json");
-            File LTConfigFile = LTConfigPath.toFile();
+            File file = new File(UtilsImpl.getConfigFolder() + "/loadingtimer.json");
+            System.out.println(file);
             System.out.println("A Config File Would have been Created Here But Currently the code for it does not exist yet. It is a still a WIP");
-            //TODO: Find a way to generate a file
+            //TODO: Find a way to generate a .json file using gson
         }
     }
 }
