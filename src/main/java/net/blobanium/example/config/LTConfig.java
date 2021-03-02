@@ -28,13 +28,10 @@ public class LTConfig {
     public class ModConfig implements ConfigData {
         boolean toggleA = true;
         boolean toggleB = false;
-
         @ConfigEntry.Gui.CollapsibleObject
         InnerStuff stuff = new InnerStuff();
-
         @ConfigEntry.Gui.Excluded
         InnerStuff invisibleStuff = new InnerStuff();
-
         class InnerStuff {
             int a = 0;
             int b = 1;
@@ -49,8 +46,7 @@ public class LTConfig {
             createFile();
             ConfigHolder<ModConfig> holder = AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
             ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-            System.out.println("A Config File Would have been Created Here But Currently the code for it does not exist yet. It is a still a WIP");
-            //TODO: Find a way to generate a .json file using gson
+            System.out.println("A Config File should be generated, however at this state it is not working yet");
         }
     }
 
