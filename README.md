@@ -1,4 +1,5 @@
-# Attention
+Find us on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/loading-timer) and on [Modrinth](https://modrinth.com/mod/loading-timer)!
 
-This branch is still in a WIP state and is not yet for production use. If You Want A Production Ready Branch, Check out the Master branch.
+## What is this?
+
 
