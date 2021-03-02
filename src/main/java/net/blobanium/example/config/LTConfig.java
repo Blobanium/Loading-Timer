@@ -26,14 +26,12 @@ public class LTConfig {
             System.out.println("Config Not Found! Creating The Config..");
             createFile();
             registerConfig();
-            System.out.println("A Config File should be generated, however at this state it is not working yet");
+            System.out.println("Config File Generated!");
         }
     }
 
     public static void createFile() {
         File file = new File(UtilsImpl.getConfigFolder() + "/loadingtimer.json");
-        System.out.println(file);
-        System.out.println(UtilsImpl.getConfigFolder());
         try{
             FileWriter myWriter = new FileWriter(UtilsImpl.getConfigFolder() + "/loadingtimer.json");
             myWriter.write("{ }");
@@ -46,9 +44,5 @@ public class LTConfig {
 
     public static void registerConfig() {
         ConfigHolder<ModConfig> holder = AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
-        System.out.println("holder: " + holder);
-    }
-
-    public static void loadConfig() {
     }
 }
