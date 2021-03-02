@@ -3,7 +3,6 @@ package net.blobanium.example.config;
 import net.blobanium.example.LoadingTimer;
 
 import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.AutoConfig;
@@ -26,16 +25,8 @@ public class LTConfig {
 
     @Config(name = "loadingtimer")
     public class ModConfig implements ConfigData {
-        boolean toggleA = true;
+        boolean insanePrecision = true;
         boolean toggleB = false;
-        @ConfigEntry.Gui.CollapsibleObject
-        InnerStuff stuff = new InnerStuff();
-        @ConfigEntry.Gui.Excluded
-        InnerStuff invisibleStuff = new InnerStuff();
-        class InnerStuff {
-            int a = 0;
-            int b = 1;
-        }
     }
 
     public static void init() {
@@ -59,7 +50,7 @@ public class LTConfig {
             myWriter.write("{ }");
             myWriter.close();
         } catch (IOException e) {
-            System.out.println("Something caused Config Creation to fail");
+            System.err.println("Something caused Config Creation to fail");
             e.printStackTrace();
         }
     }
