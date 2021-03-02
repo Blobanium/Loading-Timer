@@ -1,10 +1,7 @@
 package net.blobanium.example.config;
 
-import net.blobanium.example.LoadingTimer;
-
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import me.shedaniel.autoconfig.util.fabric.UtilsImpl;
@@ -12,14 +9,6 @@ import me.shedaniel.autoconfig.util.fabric.UtilsImpl;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
-/* ATTENTION!
-// This Is The Example from the autoconfig wiki by shedaniel
-// I Will change this once I Get the config file working
-// Once i get the config working i will change this class
-*/
-
-
 
 public class LTConfig {
 
@@ -31,12 +20,11 @@ public class LTConfig {
 
     public static void init() {
         try {
-            ConfigHolder<ModConfig> holder = AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
-            ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+            registerConfig();
         } catch (RuntimeException e) {
+            System.out.println("Config Not Found! Creating The Config..");
             createFile();
-            ConfigHolder<ModConfig> holder = AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
-            ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+            registerConfig();
             System.out.println("A Config File should be generated, however at this state it is not working yet");
         }
     }
@@ -53,5 +41,11 @@ public class LTConfig {
             System.err.println("Something caused Config Creation to fail");
             e.printStackTrace();
         }
+    }
+
+    public static void registerConfig() {
+        AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
+        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        System.out.println("config: " + config);
     }
 }
