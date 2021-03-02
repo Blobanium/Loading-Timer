@@ -3,6 +3,7 @@ package net.blobanium.example;
 import net.blobanium.example.toast.ToastExecutor;
 import net.blobanium.example.util.math.MathUtil;
 import net.blobanium.example.util.logging.TimeLogger;
+import net.blobanium.example.config.LTConfig;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -15,6 +16,7 @@ public class LoadingTimer implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
+		LTConfig.init();
 		System.out.println("Loading Timer Initialized");
 	}
 

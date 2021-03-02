@@ -1,7 +1,6 @@
 package net.blobanium.example.util.math;
 
 public class MathUtil {
-
     public static double calculateMain(long startingTimeMathUtil) {
         long timeToLoad = System.currentTimeMillis() - startingTimeMathUtil;
 		long tTLDeductor = timeToLoad/1000;
