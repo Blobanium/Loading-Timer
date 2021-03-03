@@ -20,7 +20,7 @@ This project is licensed under the MIT License.
 
 ## To-Do List
 
-- ~~Add Toast Notification maybe~~ DONE! as of commit 1ca4b9d
-- More precision
-- Configuration file and Mod Menu support
+- ~~Add Toast Notification maybe~~ DONE! as of v1.1
+- ~~More precision~~ Insane Precision now avalible as of v1.2-beta1! 
+- ~~Configuration file~~ and Mod Menu support
 - Port to Forge
