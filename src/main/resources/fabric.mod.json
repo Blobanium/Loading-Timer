@@ -4,18 +4,18 @@
   "version": "${version}",
 
   "name": "Loading Timer",
-  "description": "A Simple Tool That Lets You Know how much time It Takes for minecraft to load",
+  "description": "A simple tool that lets you know how much time it took for your client to load.",
   "authors": [
     "Blobanium"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
+    "homepage": "https://modrinth.com/mod/loading-timer",
     "issues": "https://github.com/Blobanium/Loading-Timer/issues",
     "sources": "https://github.com/Blobanium/Loading-Timer"
   },
 
   "license": "MIT",
-  "icon": "assets/modid/icon.png",
+  "icon": "icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -26,12 +26,15 @@
       "io.github.blobanium.lt.config.LTConfigModMenu"
     ]
   },
+  "mixins": [
+      "loading-timer.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
     "minecraft": ["1.16.*", "1.17.*"]
   },
   "suggests": {
-    "another-mod": "*"
+    "modmenu": "*"
   }
 }
