@@ -1,4 +1,4 @@
-package net.blobanium.example.toast;
+package io.github.blobanium.lt.toast;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;

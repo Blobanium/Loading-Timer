@@ -1,9 +1,9 @@
-package net.blobanium.example;
+package io.github.blobanium.lt;
 
-import net.blobanium.example.toast.ToastExecutor;
-import net.blobanium.example.util.math.MathUtil;
-import net.blobanium.example.util.logging.TimeLogger;
-import net.blobanium.example.config.LTConfig;
+import io.github.blobanium.lt.toast.ToastExecutor;
+import io.github.blobanium.lt.util.math.MathUtil;
+import io.github.blobanium.lt.util.logging.TimeLogger;
+import io.github.blobanium.lt.config.LTConfig;
 
 import me.shedaniel.autoconfig.AutoConfig;
 
