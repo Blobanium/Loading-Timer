@@ -20,11 +20,11 @@ public class LTConfig {
 
     public static void init() {
         try {
-            registerConfig();
+            AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
         } catch (RuntimeException e) {
             System.out.println("Configuration file not found! Creating...");
             createFile();
-            registerConfig();
+            AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
             System.out.println("Configuration file generated!");
         }
     }
@@ -39,9 +39,5 @@ public class LTConfig {
             System.err.println("Something caused configuration creation to fail. Please report this to our GitHub issues page.");
             e.printStackTrace();
         }
-    }
-
-    public static void registerConfig() {
-        ConfigHolder<ModConfig> holder = AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
     }
 }
