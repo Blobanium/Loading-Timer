@@ -22,10 +22,10 @@ public class LTConfig {
         try {
             registerConfig();
         } catch (RuntimeException e) {
-            System.out.println("Config Not Found! Creating The Config..");
+            System.out.println("Configuration file not found! Creating...");
             createFile();
             registerConfig();
-            System.out.println("Config File Generated!");
+            System.out.println("Configuration file generated!");
         }
     }
 
@@ -36,7 +36,7 @@ public class LTConfig {
             myWriter.write("{ }");
             myWriter.close();
         } catch (IOException e) {
-            System.err.println("Something caused Config Creation to fail");
+            System.err.println("Something caused configuration creation to fail. Please report this to our GitHub issues page.");
             e.printStackTrace();
         }
     }
