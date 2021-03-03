@@ -1,4 +1,4 @@
-package net.blobanium.example.config;
+package io.github.blobanium.lt.config;
 
 import me.shedaniel.autoconfig.AutoConfig;
 

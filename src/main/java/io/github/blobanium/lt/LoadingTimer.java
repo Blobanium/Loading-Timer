@@ -1,9 +1,9 @@
-package net.blobanium.example;
+package io.github.blobanium.lt;
 
-import net.blobanium.example.toast.ToastExecutor;
-import net.blobanium.example.util.math.MathUtil;
-import net.blobanium.example.util.logging.TimeLogger;
-import net.blobanium.example.config.LTConfig;
+import io.github.blobanium.lt.toast.ToastExecutor;
+import io.github.blobanium.lt.util.math.MathUtil;
+import io.github.blobanium.lt.util.logging.TimeLogger;
+import io.github.blobanium.lt.config.LTConfig;
 
 import me.shedaniel.autoconfig.AutoConfig;
 
@@ -20,7 +20,7 @@ public class LoadingTimer implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LTConfig.init();
-		System.out.println("Loading Timer Initialized");
+		System.out.println("Loading Timer initialized!");
 	}
 
 	public static void load() {
@@ -41,7 +41,7 @@ public class LoadingTimer implements ModInitializer {
 				TimeLogger.loggerMessage(2, finalResult, "");
 				double rawLoadingTime = finalResult - loadMemory;
 				if(rawLoadingTime < 0.05){
-				TimeLogger.loggerMessage(3, rawLoadingTime, ", Quite insane isn't it?");
+				TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
 				} else {
 				TimeLogger.loggerMessage(3, rawLoadingTime, "");
 				}
@@ -52,7 +52,7 @@ public class LoadingTimer implements ModInitializer {
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if(!(hasGameStarted == 1 | hasGameStarted == 2)){
-			throw new IndexOutOfBoundsException("Invalid Value for byte hasGameStarted has been given: " + hasGameStarted + " ");
+			throw new IndexOutOfBoundsException("Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
 		}
 	}
 }

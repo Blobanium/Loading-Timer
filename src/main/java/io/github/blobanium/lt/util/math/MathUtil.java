@@ -1,6 +1,6 @@
-package net.blobanium.example.util.math;
+package io.github.blobanium.lt.util.math;
 
-import net.blobanium.example.config.LTConfig;
+import io.github.blobanium.lt.config.LTConfig;
 
 import me.shedaniel.autoconfig.AutoConfig;
 
