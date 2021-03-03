@@ -26,6 +26,11 @@
       "io.github.blobanium.lt.config.LTConfigModMenu"
     ]
   },
+  {
+  	"mixins": [
+  		"loading-timer.mixins.json"
+  	]
+  },
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",

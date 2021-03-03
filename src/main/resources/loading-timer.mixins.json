@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.blobanium.lt.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "LoadModMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
