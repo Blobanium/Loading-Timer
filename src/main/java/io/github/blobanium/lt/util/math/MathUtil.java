@@ -1,9 +1,5 @@
 package io.github.blobanium.lt.util.math;
 
-import io.github.blobanium.lt.config.LTConfig;
-
-import me.shedaniel.autoconfig.AutoConfig;
-
 public class MathUtil {
     public static int tenMulti = 1000;
 

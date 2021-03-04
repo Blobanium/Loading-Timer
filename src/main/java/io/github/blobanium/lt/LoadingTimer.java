@@ -5,8 +5,6 @@ import io.github.blobanium.lt.util.math.MathUtil;
 import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.config.LTConfig;
 
-import me.shedaniel.autoconfig.AutoConfig;
-
 import net.fabricmc.api.ModInitializer;
 
 public class LoadingTimer implements ModInitializer {
