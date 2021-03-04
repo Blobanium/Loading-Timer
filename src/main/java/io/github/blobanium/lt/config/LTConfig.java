@@ -20,6 +20,7 @@ public class LTConfig {
     public static void init() {
         try {
             System.out.println("The Config has been temporarily disabled due to a bug and will be fixed later");
+            System.out.println("For More Information, Check https://github.com/Blobanium/Loading-Timer/issues/7");
         } catch (RuntimeException e) {
             System.out.println("Configuration file not found! Creating...");
             createFile();
