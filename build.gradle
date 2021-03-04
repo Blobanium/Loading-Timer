@@ -26,14 +26,9 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
-	modApi("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
 
 	modImplementation "com.oroarmor:oro-config:${oro_version}"
   	include "com.oroarmor:oro-config:${oro_version}"
-
-    modApi "com.github.TerraformersMC:ModMenu:${modmenu_version}"
 }
 
 processResources {
