@@ -18,12 +18,17 @@ public class LoadingTimer implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		SimpleConfig CONFIG = SimpleConfig.of( "config" ).provider( this::ltProvider ).request();
-		final boolean insanePrecision = !CONFIG.getOrDefault("insanePrecision", false);
+		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
+		if(insanePrecision){
+			STARTINGTIME2 = startingTimeNano;
+			MathUtil.mathUtilIPConfig = true;
+		}
 		System.out.println("Loading Timer initialized!");
 	}
 
 	private String ltProvider(String filename) {
-        return "#My default config content\n";
+        return "#Loading timer Config File." + 
+		"\ninsane_precision=false";
     }
 
 	public static void load() {
