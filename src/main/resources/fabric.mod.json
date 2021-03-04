@@ -21,9 +21,6 @@
   "entrypoints": {
     "main": [
       "io.github.blobanium.lt.LoadingTimer"
-    ],
-    "modmenu": [
-      "io.github.blobanium.lt.config.LTConfigModMenu"
     ]
   },
   "mixins": [

@@ -3,9 +3,7 @@ package io.github.blobanium.lt;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
 import io.github.blobanium.lt.util.logging.TimeLogger;
-import io.github.blobanium.lt.config.LTConfig;
-
-import me.shedaniel.autoconfig.AutoConfig;
+import io.github.blobanium.lt.config.SimpleConfig;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -19,17 +17,23 @@ public class LoadingTimer implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		LTConfig.init();
+		SimpleConfig CONFIG = SimpleConfig.of( "config" ).provider( this::ltProvider ).request();
+		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
+		if(insanePrecision){
+			STARTINGTIME2 = startingTimeNano;
+			MathUtil.mathUtilIPConfig = true;
+		}
 		System.out.println("Loading Timer initialized!");
 	}
+
+	private String ltProvider(String filename) {
+        return "#Loading timer Config File." + 
+		"\ninsane_precision=false";
+    }
 
 	public static void load() {
 		// The "Load" Procedure Runs twice, one for initialization and the other for loading completely
 		// This is controlled by the variable called "hasGameStarted"
-		LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
-		if(config.insanePrecision){
-			STARTINGTIME2 = startingTimeNano;
-		}
 		double finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		if(hasGameStarted == 0) {
 			hasGameStarted = 1;

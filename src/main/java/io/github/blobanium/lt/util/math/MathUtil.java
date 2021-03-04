@@ -1,15 +1,11 @@
 package io.github.blobanium.lt.util.math;
 
-import io.github.blobanium.lt.config.LTConfig;
-
-import me.shedaniel.autoconfig.AutoConfig;
-
 public class MathUtil {
     public static int tenMulti = 1000;
+    public static boolean mathUtilIPConfig = false;
 
     public static double calculateMain(long startingTimeMathUtil) {
-        LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
-		if(config.insanePrecision){
+        if (mathUtilIPConfig) {
             tenMulti = 1000000000;
             long timeToLoad = System.nanoTime() - startingTimeMathUtil;
             long tTLDeductor = timeToLoad/tenMulti;
