@@ -26,10 +26,6 @@ public class LoadingTimer implements ModInitializer {
 	public static void load() {
 		// The "Load" Procedure Runs twice, one for initialization and the other for loading completely
 		// This is controlled by the variable called "hasGameStarted"
-		LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
-		if(config.insanePrecision){
-			STARTINGTIME2 = startingTimeNano;
-		}
 		double finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		if(hasGameStarted == 0) {
 			hasGameStarted = 1;

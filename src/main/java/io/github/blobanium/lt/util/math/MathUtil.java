@@ -8,21 +8,11 @@ public class MathUtil {
     public static int tenMulti = 1000;
 
     public static double calculateMain(long startingTimeMathUtil) {
-        LTConfig.ModConfig config = AutoConfig.getConfigHolder(LTConfig.ModConfig.class).getConfig();
-		if(config.insanePrecision){
-            tenMulti = 1000000000;
-            long timeToLoad = System.nanoTime() - startingTimeMathUtil;
-            long tTLDeductor = timeToLoad/tenMulti;
-            double beforeFinalResult = (timeToLoad - (tTLDeductor * tenMulti));
-            double finalResultMath = tTLDeductor + (beforeFinalResult / tenMulti);
-            return finalResultMath;
-        } else {
         long timeToLoad = System.currentTimeMillis() - startingTimeMathUtil;
 		long tTLDeductor = timeToLoad/tenMulti;
 		double beforeFinalResult = (timeToLoad - (tTLDeductor * tenMulti));
 		double finalResultMath = tTLDeductor + (beforeFinalResult / tenMulti);
         return finalResultMath;
-        }
     }
 
     public static double toastCalc(double finalResult){

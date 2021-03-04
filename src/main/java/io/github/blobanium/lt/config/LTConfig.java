@@ -19,11 +19,10 @@ public class LTConfig {
 
     public static void init() {
         try {
-            AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
+            System.out.println("The Config has been temporarily disabled due to a bug and will be fixed later");
         } catch (RuntimeException e) {
             System.out.println("Configuration file not found! Creating...");
             createFile();
-            AutoConfig.register(ModConfig.class, (GsonConfigSerializer::new));
             System.out.println("Configuration file generated!");
         }
     }
