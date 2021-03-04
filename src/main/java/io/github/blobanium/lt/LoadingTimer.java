@@ -17,7 +17,7 @@ public class LoadingTimer implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		SimpleConfig CONFIG = SimpleConfig.of( "config" ).provider( this::ltProvider ).request();
+		SimpleConfig CONFIG = SimpleConfig.of( "LoadingTimer" ).provider( this::ltProvider ).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
 		if(insanePrecision){
 			STARTINGTIME2 = startingTimeNano;
