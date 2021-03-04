@@ -12,6 +12,7 @@ group = project.maven_group
 repositories { 
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://jitpack.io"}
+	maven { url = "https://dl.bintray.com/oroarmor/oroarmor" }
 }
 
 dependencies {
@@ -29,6 +30,8 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
+	modImplementation "com.oroarmor:oro-config:${oro_version}"
+  	include "com.oroarmor:oro-config:${oro_version}"
 
     modApi "com.github.TerraformersMC:ModMenu:${modmenu_version}"
 }
