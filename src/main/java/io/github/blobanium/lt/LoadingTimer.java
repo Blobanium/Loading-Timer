@@ -3,6 +3,7 @@ package io.github.blobanium.lt;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
 import io.github.blobanium.lt.util.logging.TimeLogger;
+import io.github.blobanium.lt.config.SimpleConfig;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -16,8 +17,14 @@ public class LoadingTimer implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
+		SimpleConfig CONFIG = SimpleConfig.of( "config" ).provider( this::ltProvider ).request();
+		final boolean insanePrecision = !CONFIG.getOrDefault("insanePrecision", false);
 		System.out.println("Loading Timer initialized!");
 	}
+
+	private String ltProvider(String filename) {
+        return "#My default config content\n";
+    }
 
 	public static void load() {
 		// The "Load" Procedure Runs twice, one for initialization and the other for loading completely
