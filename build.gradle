@@ -10,9 +10,7 @@ version = project.mod_version
 group = project.maven_group
 
 repositories { 
-	maven { url "https://maven.shedaniel.me/" }
-	maven { url "https://jitpack.io"}
-	maven { url = "https://dl.bintray.com/oroarmor/oroarmor" }
+
 }
 
 dependencies {
