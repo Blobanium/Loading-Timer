@@ -28,7 +28,7 @@ public class LoadingTimer implements ModInitializer {
 
 	private String ltProvider(String filename) {
         return "#Loading timer Config File." + 
-		"\ninsane_precision=false";
+		"\ninsane_precision=false #Makes the result of the loading time way more precise.";
     }
 
 	public static void load() {
