@@ -24,3 +24,5 @@ This project is licensed under the MIT License.
 - ~~More precision~~ Insane Precision now available as of v1.2-beta1!
 - ~~Configuration file~~ and Mod Menu support
 - Port to Forge
+
+If you have any other suggestions for this mod, then feel free to open an issue about your suggestion.
