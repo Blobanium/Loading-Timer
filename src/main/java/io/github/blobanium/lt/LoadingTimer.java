@@ -6,6 +6,7 @@ import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.config.SimpleConfig;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.MinecraftClient;
 
 public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
@@ -14,12 +15,13 @@ public class LoadingTimer implements ModInitializer {
 	private static long STARTINGTIME2 = startingTime;
 	public static byte hasGameStarted = 0;
 	public static double loadMemory = 0;
-	
+	private static boolean isClientFullscreen = false;
+
 	@Override
 	public void onInitialize() {
-		SimpleConfig CONFIG = SimpleConfig.of( "LoadingTimer" ).provider( this::ltProvider ).request();
+		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
-		if(insanePrecision){
+		if (insanePrecision) {
 			STARTINGTIME2 = startingTimeNano;
 			MathUtil.mathUtilIPConfig = true;
 		}
@@ -27,37 +29,65 @@ public class LoadingTimer implements ModInitializer {
 	}
 
 	private String ltProvider(String filename) {
-        return "#Loading timer Config File." + 
-		"\ninsane_precision=false #Makes the result of the loading time way more precise.";
-    }
+		return "#Loading timer Config File."
+				+ "\ninsane_precision=false #Makes the result of the loading time way more precise.";
+	}
 
 	public static void load() {
-		// The "Load" Procedure Runs twice, one for initialization and the other for loading completely
+		// The "Load" Procedure Runs twice, one for initialization and the other for
+		// loading completely
 		// This is controlled by the variable called "hasGameStarted"
 		double finalResult = MathUtil.calculateMain(STARTINGTIME2);
-		if(hasGameStarted == 0) {
+		if (hasGameStarted == 0) {
 			hasGameStarted = 1;
+			if (MinecraftClient.getInstance().options.fullscreen) {
+				isClientFullscreen = true;
+			}
 			TimeLogger.loggerMessage(1, finalResult, "");
 			loadMemory = finalResult;
 		} else {
-			if(hasGameStarted == 1) {
-				hasGameStarted = 2;
-				TimeLogger.loggerMessage(2, finalResult, "");
-				double rawLoadingTime = finalResult - loadMemory;
-				if(rawLoadingTime < 0.05){
-				TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
+			if (isClientFullscreen) {
+				if(hasGameStarted == 1){
+					hasGameStarted = 2;
 				} else {
-				TimeLogger.loggerMessage(3, rawLoadingTime, "");
+					if(hasGameStarted == 2){
+						hasGameStarted = 3;
+					} else {
+						if(hasGameStarted == 3){
+							hasGameStarted = 4;
+							TimeLogger.loggerMessage(2, finalResult, "");
+							double rawLoadingTime = finalResult - loadMemory;
+							if (rawLoadingTime < 0.05) {
+								TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
+							} else {
+								TimeLogger.loggerMessage(3, rawLoadingTime, "");
+							}
+							double finalResultToast = MathUtil.toastCalc(finalResult);
+							// Send A System toast Once its done loading
+							ToastExecutor.executeToast(finalResultToast);
+						}
+					}
 				}
-				double finalResultToast = MathUtil.toastCalc(finalResult);
-				// Send A System toast Once its done loading
-				ToastExecutor.executeToast(finalResultToast);
+			} else {
+				if (hasGameStarted == 1) {
+					hasGameStarted = 2;
+					TimeLogger.loggerMessage(2, finalResult, "");
+					double rawLoadingTime = finalResult - loadMemory;
+					if (rawLoadingTime < 0.05) {
+						TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
+					} else {
+						TimeLogger.loggerMessage(3, rawLoadingTime, "");
+					}
+					double finalResultToast = MathUtil.toastCalc(finalResult);
+					// Send A System toast Once its done loading
+					ToastExecutor.executeToast(finalResultToast);
+				}
 			}
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
-		if(!(hasGameStarted == 1 | hasGameStarted == 2)){
-			throw new IndexOutOfBoundsException("Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
+		if (!(hasGameStarted >= 1 && hasGameStarted <= 4)) {
+			throw new IndexOutOfBoundsException(
+					"Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
 		}
 	}
 }
-
