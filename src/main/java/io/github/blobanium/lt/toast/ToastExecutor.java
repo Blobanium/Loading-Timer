@@ -24,7 +24,7 @@ public class ToastExecutor {
 
         if(messageToastSelector == 2){
             SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT,
-            new LiteralText("Warning"), new LiteralText("Do not go in/out of full screen mode during startup. If You think this is a bug please report this on our github issues page"));
+            new LiteralText("Warning"), new LiteralText("Do not go in/out of full screen mode during startup. If you think this is a bug please report this on our github issues page"));
             MinecraftClient.getInstance().getToastManager().add(toast);
         }
     
