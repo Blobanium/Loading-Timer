@@ -6,6 +6,7 @@ import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.config.SimpleConfig;
 
 import net.fabricmc.api.ModInitializer;
+
 import net.minecraft.client.MinecraftClient;
 
 public class LoadingTimer implements ModInitializer {
@@ -16,6 +17,8 @@ public class LoadingTimer implements ModInitializer {
 	public static byte hasGameStarted = 0;
 	public static double loadMemory = 0;
 	private static boolean isClientFullscreen = false;
+	public static double finalResult = 0;
+	private static boolean manualFullscreenError = false;
 
 	@Override
 	public void onInitialize() {
@@ -37,7 +40,7 @@ public class LoadingTimer implements ModInitializer {
 		// The "Load" Procedure Runs twice, one for initialization and the other for
 		// loading completely
 		// This is controlled by the variable called "hasGameStarted"
-		double finalResult = MathUtil.calculateMain(STARTINGTIME2);
+		finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		if (hasGameStarted == 0) {
 			hasGameStarted = 1;
 			if (MinecraftClient.getInstance().options.fullscreen) {
@@ -55,32 +58,23 @@ public class LoadingTimer implements ModInitializer {
 					} else {
 						if(hasGameStarted == 3){
 							hasGameStarted = 4;
-							TimeLogger.loggerMessage(2, finalResult, "");
-							double rawLoadingTime = finalResult - loadMemory;
-							if (rawLoadingTime < 0.05) {
-								TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
-							} else {
-								TimeLogger.loggerMessage(3, rawLoadingTime, "");
-							}
-							double finalResultToast = MathUtil.toastCalc(finalResult);
-							// Send A System toast Once its done loading
-							ToastExecutor.executeToast(finalResultToast);
+							lastMessage();
 						}
 					}
 				}
 			} else {
 				if (hasGameStarted == 1) {
 					hasGameStarted = 2;
-					TimeLogger.loggerMessage(2, finalResult, "");
-					double rawLoadingTime = finalResult - loadMemory;
-					if (rawLoadingTime < 0.05) {
-						TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
-					} else {
-						TimeLogger.loggerMessage(3, rawLoadingTime, "");
+					lastMessage();
+				} else {
+					if(hasGameStarted == 2 || hasGameStarted == 3){
+						if(!manualFullscreenError){
+							manualFullscreenError = true;
+							ToastExecutor.executeToast(0, 2);
+							System.err.println("The user toggled full screen during startup");
+							Thread.dumpStack();
+						}
 					}
-					double finalResultToast = MathUtil.toastCalc(finalResult);
-					// Send A System toast Once its done loading
-					ToastExecutor.executeToast(finalResultToast);
 				}
 			}
 		}
@@ -89,5 +83,18 @@ public class LoadingTimer implements ModInitializer {
 			throw new IndexOutOfBoundsException(
 					"Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
 		}
+	}
+
+	public static void lastMessage(){
+		TimeLogger.loggerMessage(2, finalResult, "");
+		double rawLoadingTime = finalResult - loadMemory;
+		if (rawLoadingTime < 0.05) {
+			TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
+		} else {
+			TimeLogger.loggerMessage(3, rawLoadingTime, "");
+		}
+		double finalResultToast = MathUtil.toastCalc(finalResult);
+		// Send A System toast Once its done loading
+		ToastExecutor.executeToast(finalResultToast, 1);
 	}
 }
