@@ -64,7 +64,7 @@ public class LoadingTimer implements ModInitializer {
 				}
 			} else {
 				if (hasGameStarted == 1) {
-					hasGameStarted = 2;
+					hasGameStarted = 4;
 					lastMessage();
 				} else {
 					if(hasGameStarted == 2 || hasGameStarted == 3){
@@ -80,8 +80,7 @@ public class LoadingTimer implements ModInitializer {
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if (!(hasGameStarted >= 1 && hasGameStarted <= 4)) {
-			throw new IndexOutOfBoundsException(
-					"Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
+			throw new IndexOutOfBoundsException("Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
 		}
 	}
 
