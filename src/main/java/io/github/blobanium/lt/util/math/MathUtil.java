@@ -21,7 +21,7 @@ public class MathUtil {
         }
     }
 
-    public static double toastCalc(double finalResult){
+    public static double roundValue(double finalResult){
         double roundedVariableOutput1 = finalResult*tenMulti;
         double roundedVariableOutput2 = Math.round(roundedVariableOutput1);
         double roundedVariableOutput3 = roundedVariableOutput2/tenMulti;

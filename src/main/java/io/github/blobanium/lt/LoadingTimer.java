@@ -87,13 +87,13 @@ public class LoadingTimer implements ModInitializer {
 
 	public static void lastMessage(){
 		TimeLogger.loggerMessage(2, finalResult, "");
-		double rawLoadingTime = finalResult - loadMemory;
+		double rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
 		if (rawLoadingTime < 0.05) {
 			TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
 		} else {
 			TimeLogger.loggerMessage(3, rawLoadingTime, "");
 		}
-		double finalResultToast = MathUtil.toastCalc(finalResult);
+		double finalResultToast = MathUtil.roundValue(finalResult);
 		// Send A System toast Once its done loading
 		ToastExecutor.executeToast(finalResultToast, 1);
 	}
