@@ -90,6 +90,7 @@ public class LoadingTimer implements ModInitializer {
 	public void configRegister(){
 		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
+		final boolean debugOption = CONFIG.getOrDefault("debug", false);
 		if (insanePrecision) {
 			STARTINGTIME2 = startingTimeNano;
 			MathUtil.mathUtilIPConfig = true;
@@ -98,6 +99,7 @@ public class LoadingTimer implements ModInitializer {
 
 	private String ltProvider(String filename) {
 		return "#Loading timer Config File."
-				+ "\ninsane_precision=false #Makes the result of the loading time way more precise.";
+				+ "\ninsane_precision=false #Makes the result of the loading time way more precise."
+				+ "\ndebug=false #Enables Debug output for loading timer (WIP and not working yet)";
 	}
 }
