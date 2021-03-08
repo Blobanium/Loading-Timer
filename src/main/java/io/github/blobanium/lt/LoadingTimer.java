@@ -22,18 +22,8 @@ public class LoadingTimer implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
-		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
-		if (insanePrecision) {
-			STARTINGTIME2 = startingTimeNano;
-			MathUtil.mathUtilIPConfig = true;
-		}
+		configRegister();
 		System.out.println("Loading Timer initialized!");
-	}
-
-	private String ltProvider(String filename) {
-		return "#Loading timer Config File."
-				+ "\ninsane_precision=false #Makes the result of the loading time way more precise.";
 	}
 
 	public static void load() {
@@ -95,5 +85,19 @@ public class LoadingTimer implements ModInitializer {
 		double finalResultToast = MathUtil.roundValue(finalResult);
 		// Send A System toast Once its done loading
 		ToastExecutor.executeToast(finalResultToast, 1);
+	}
+
+	public void configRegister(){
+		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
+		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
+		if (insanePrecision) {
+			STARTINGTIME2 = startingTimeNano;
+			MathUtil.mathUtilIPConfig = true;
+		}
+	}
+
+	private String ltProvider(String filename) {
+		return "#Loading timer Config File."
+				+ "\ninsane_precision=false #Makes the result of the loading time way more precise.";
 	}
 }
