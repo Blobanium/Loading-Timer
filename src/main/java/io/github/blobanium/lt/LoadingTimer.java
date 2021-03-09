@@ -7,6 +7,7 @@ import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.config.SimpleConfig;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.client.MinecraftClient;
 
@@ -19,13 +20,15 @@ public class LoadingTimer implements ModInitializer {
 	public static double loadMemory = 0;
 	private static boolean isClientFullscreen = false;
 	public static double finalResult = 0;
-	private static boolean manualFullscreenError = false;
 	public static boolean timerDone = false;
 
 	@Override
 	public void onInitialize() {
 		configRegister();
 		System.out.println("Loading Timer initialized!");
+		finalResult = MathUtil.calculateMain(STARTINGTIME2);
+		TimeLogger.loggerMessage(1, finalResult, "");
+		loadMemory = finalResult;
 	}
 
 	public static void load() {
@@ -38,10 +41,8 @@ public class LoadingTimer implements ModInitializer {
 			if (MinecraftClient.getInstance().options.fullscreen) {
 				isClientFullscreen = true;
 			}
-			TimeLogger.loggerMessage(1, finalResult, "");
-			loadMemory = finalResult;
 		} else {
-			if (isClientFullscreen) {
+			if (isClientFullscreen && !FabricLoader.getInstance().isModLoaded("architectury")) {
 				if(hasGameStarted == 1){
 					hasGameStarted = 2;
 				} else {
