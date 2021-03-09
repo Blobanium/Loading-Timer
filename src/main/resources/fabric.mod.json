@@ -23,9 +23,8 @@
       "io.github.blobanium.lt.LoadingTimer"
     ]
   },
-  "mixins": [
-      "loading-timer.mixins.json"
-  ],
+  "mixins": 
+  ["loading-timer.mixins.json"],
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",

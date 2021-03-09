@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "LoadModMixin"
+    "LoadModMixin",
+    "BootstrapMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -12,14 +12,15 @@ import net.minecraft.client.MinecraftClient;
 
 public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
-	public static final long startingTime = System.currentTimeMillis();
-	public static final long startingTimeNano = System.nanoTime();
+	public static long startingTime = System.currentTimeMillis();
+	public static long startingTimeNano = System.nanoTime();
 	private static long STARTINGTIME2 = startingTime;
 	public static byte hasGameStarted = 0;
 	public static double loadMemory = 0;
 	private static boolean isClientFullscreen = false;
 	public static double finalResult = 0;
 	private static boolean manualFullscreenError = false;
+	public static boolean timerDone = false;
 
 	@Override
 	public void onInitialize() {
@@ -57,15 +58,6 @@ public class LoadingTimer implements ModInitializer {
 				if (hasGameStarted == 1) {
 					hasGameStarted = 4;
 					lastMessage();
-				} else {
-					if(hasGameStarted == 2 || hasGameStarted == 3){
-						if(!manualFullscreenError){
-							manualFullscreenError = true;
-							ToastExecutor.executeToast(0, 2);
-							System.err.println("The user toggled full screen during startup");
-							Thread.dumpStack();
-						}
-					}
 				}
 			}
 		}
