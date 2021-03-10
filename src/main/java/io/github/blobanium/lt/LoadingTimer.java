@@ -2,7 +2,6 @@ package io.github.blobanium.lt;
 
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
-import io.github.blobanium.lt.util.logging.DebugLogger;
 import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.config.SimpleConfig;
 
@@ -84,19 +83,14 @@ public class LoadingTimer implements ModInitializer {
 	public void configRegister(){
 		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
-		final boolean debugOption = CONFIG.getOrDefault("debug", false);
 		if (insanePrecision) {
 			STARTINGTIME2 = startingTimeNano;
 			MathUtil.mathUtilIPConfig = true;
-		}
-		if (debugOption){
-			DebugLogger.debug = true;
 		}
 	}
 
 	private String ltProvider(String filename) {
 		return "#Loading timer Config File."
-				+ "\ninsane_precision=false #Makes the result of the loading time way more precise."
-				+ "\ndebug=false #Enables Debug output for loading timer (WIP and not working yet)";
+				+ "\ninsane_precision=false #Makes the result of the loading time way more precise.";
 	}
 }
