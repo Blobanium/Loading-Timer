@@ -2,6 +2,10 @@
 
 Find us on [Modrinth](https://modrinth.com/mod/loading-timer) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/loading-timer)!
 
+## LTS
+
+This project is in LTS(Because i kinda ran out of ideas for this mod.), Feel free to submit suggestions for this mod as i'll will still work on other suggestions.
+
 ## What is this?
 
 This is my attempt at creating a mod using Fabric. All it does is shows you in logs or in a toast notification at startup how much time it took to load the Minecraft client.
@@ -24,5 +28,3 @@ This project is licensed under the MIT License.
 - ~~More precision~~ Insane Precision now available as of v1.2-beta1!
 - ~~Configuration file~~ and Mod Menu support
 - Port to Forge
-
-If you have any other suggestions for this mod, then feel free to open an issue about your suggestion.
