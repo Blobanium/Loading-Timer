@@ -32,5 +32,10 @@
   },
   "suggests": {
     "modmenu": "*"
+  },
+  "custom": {
+    "vanguard": {
+      "curse-project-id": "[450817]"
+    }
   }
 }
