@@ -11,6 +11,10 @@ group = project.maven_group
 
 repositories { 
 	maven { url 'https://jitpack.io' }
+	maven {
+		name = "Ladysnake Libs"
+		url = "https://dl.bintray.com/ladysnake/libs"
+	}
 }
 
 dependencies {
@@ -24,6 +28,8 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
+
+	include "io.github.ladysnake:vanguard:${vanguard_version}"
 }
 
 processResources {
