@@ -14,7 +14,8 @@ jobs:
         java: [
           1.8,  # Minimum supported by Minecraft
           11,   # Current Java LTS
-          15    # Latest version
+          15,   # Latest version
+          16    # A Brand New Version Released by Java
         ]
         # and run on both Linux and Windows
         os: [ubuntu-20.04, windows-latest]
