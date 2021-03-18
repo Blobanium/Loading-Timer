@@ -11,6 +11,7 @@ group = project.maven_group
 
 repositories { 
 	maven { url 'https://jitpack.io' }
+	maven { url 'https://maven.thebrokenrail.com' }
 	maven {
 		name = "Ladysnake Libs"
 		url = "https://dl.bintray.com/ladysnake/libs"
@@ -30,6 +31,7 @@ dependencies {
 	// You may need to force-disable transitiveness on them.
 
 	include "io.github.ladysnake:vanguard:${vanguard_version}"
+	modCompileOnly "com.thebrokenrail:modupdater:${modupdater_version}+${modupdater_minecraft_version}"
 }
 
 processResources {
