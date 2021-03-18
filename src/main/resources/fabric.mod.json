@@ -36,6 +36,10 @@
   "custom": {
     "vanguard": {
       "curse-project-id": "450817"
+    },
+    "modupdater": {
+      "strategy": "curseforge",
+      "projectID": 450817
     }
   }
 }
