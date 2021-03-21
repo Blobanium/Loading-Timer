@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "io.github.blobanium.lt.LoadingTimer"
+    ],
+    "server":[
+      "io.github.blobanium.lt.LoadingTimerServer"
     ]
   },
   "mixins": 
