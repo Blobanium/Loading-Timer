@@ -10,6 +10,9 @@ import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.client.MinecraftClient;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class LoadingTimer implements ModInitializer {
 	public static long timeToLoad;
 	public static long startingTime = System.currentTimeMillis();
@@ -20,11 +23,12 @@ public class LoadingTimer implements ModInitializer {
 	private static boolean isClientFullscreen = false;
 	public static double finalResult = 0;
 	public static boolean timerDone = false;
+	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
 	@Override
 	public void onInitialize() {
 		configRegister();
-		System.out.println("Loading Timer initialized!");
+		LOGGER.info("Loading Timer initialized!");
 		finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		TimeLogger.loggerMessage(1, finalResult, "");
 		loadMemory = finalResult;
