@@ -7,8 +7,7 @@
   ],
   "client": [
     "LoadModMixin",
-    "BootstrapMixin",
-    "MinecraftClientGameMixin"
+    "BootstrapMixin"
   ],
   "injectors": {
     "defaultRequire": 1
