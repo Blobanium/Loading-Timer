@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 @Mixin(TitleScreen.class)
 public class LoadModMixin {
-	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+	private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
 	@Inject(at = @At("HEAD"), method = "init()V")
 	private void init(CallbackInfo info) {
