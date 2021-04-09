@@ -5,9 +5,15 @@ import net.minecraft.client.toast.SystemToast;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ToastExecutor {
+    public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+
     public static void executeToast(double toastTimeValue, int messageToastSelector){
         if(messageToastSelector == 1){
+            LOGGER.debug("Showing Toast Notification");
             //Shhhhh!!
             short min = 1;
             short max = 1000;

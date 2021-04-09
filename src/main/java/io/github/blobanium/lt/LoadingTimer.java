@@ -72,6 +72,7 @@ public class LoadingTimer implements ModInitializer {
 	}
 
 	public static void lastMessage(){
+		
 		TimeLogger.loggerMessage(2, finalResult, "");
 		double rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
 		if (rawLoadingTime < 0.05) {
@@ -88,6 +89,7 @@ public class LoadingTimer implements ModInitializer {
 		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false);
 		if (insanePrecision) {
+			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
 			MathUtil.mathUtilIPConfig = true;
 		}
