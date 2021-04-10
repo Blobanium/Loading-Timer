@@ -24,6 +24,7 @@ public class LoadingTimer implements ModInitializer {
 	public static double finalResult = 0;
 	public static boolean timerDone = false;
 	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+	public static boolean noException = false;
 
 	@Override
 	public void onInitialize() {
@@ -67,7 +68,11 @@ public class LoadingTimer implements ModInitializer {
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if (!(hasGameStarted >= 1 && hasGameStarted <= 4)) {
+			if(noException){
+				LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-4)");
+			} else {
 			throw new IndexOutOfBoundsException("Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
+			}
 		}
 	}
 
@@ -89,15 +94,20 @@ public class LoadingTimer implements ModInitializer {
 		LOGGER.debug("Registering config..");
 		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false); 
+		final boolean noExceptionConfig = CONFIG.getOrDefault("No_Exception", false); 
 		if (insanePrecision) {
 			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
 			MathUtil.mathUtilIPConfig = true;
 		}
+		if(noExceptionConfig){
+			noException = true;
+		}
 	}
 
 	private String ltProvider(String filename) {
 		return "#Loading timer Config File."
-		+ "\ninsane_precision=false #Makes the result of the loading time way more precise. (Currently Broken at the moment)";
+		+ "\ninsane_precision=false #Makes the result of the loading time way more precise. (Currently Broken at the moment)"
+		+ "\nno_exception=false #Logs fatal errors in the log output instead of throwing an exception. Only Works for this mod ONLY, and leave this off unless you know what your doing (Experimental)";
 	}
 }

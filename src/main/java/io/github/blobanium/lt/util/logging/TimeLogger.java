@@ -3,6 +3,8 @@ package io.github.blobanium.lt.util.logging;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import io.github.blobanium.lt.LoadingTimer;
+
 public class TimeLogger {
     public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
@@ -11,7 +13,11 @@ public class TimeLogger {
         if(messageSelector == 2) {LOGGER.info("Minecraft took " + variable + " seconds to fully load.");}
         if(messageSelector == 3) {LOGGER.info("That is " + variable + " seconds worth of raw loading time" + extraText);}
         if(!(messageSelector >= 1 && messageSelector <= 3)){
+            if(LoadingTimer.noException){
+                LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageSelector: " + messageSelector + "  (Expected range: 1-3)");
+            } else {
             throw new IndexOutOfBoundsException("Invalid value for int messageSelector has been given: " + messageSelector + " ");
+            }
         }
     }
 }

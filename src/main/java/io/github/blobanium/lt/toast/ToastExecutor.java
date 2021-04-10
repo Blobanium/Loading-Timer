@@ -7,6 +7,8 @@ import net.minecraft.text.TranslatableText;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import io.github.blobanium.lt.LoadingTimer;
+
 public class ToastExecutor {
     public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
@@ -29,6 +31,9 @@ public class ToastExecutor {
         }
     
         if(!(messageToastSelector == 1)){
+            if(LoadingTimer.noException){
+                LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageToastSelector: " + messageToastSelector + "  (Expected range: 1)");
+            }
             throw new IndexOutOfBoundsException("Invalid value for int messageToastSelector has been given: " + messageToastSelector + " ");
         }
     }
