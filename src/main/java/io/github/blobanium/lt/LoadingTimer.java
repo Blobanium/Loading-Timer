@@ -94,7 +94,7 @@ public class LoadingTimer implements ModInitializer {
 		LOGGER.debug("Registering config..");
 		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false); 
-		final boolean noExceptionConfig = CONFIG.getOrDefault("No_Exception", false); 
+		final boolean noExceptionConfig = CONFIG.getOrDefault("no_exception", false); 
 		if (insanePrecision) {
 			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
