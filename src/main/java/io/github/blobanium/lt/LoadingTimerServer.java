@@ -11,6 +11,6 @@ public class LoadingTimerServer implements DedicatedServerModInitializer {
 
     @Override
     public void onInitializeServer() {
-        LOGGER.info("Loading Timer doesn't work properly on the server just yet");
+        LOGGER.warn("Loading Timer doesn't work properly on the server.");
     }
 }
