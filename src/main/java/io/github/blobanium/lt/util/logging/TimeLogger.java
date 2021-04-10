@@ -15,6 +15,7 @@ public class TimeLogger {
         if(!(messageSelector >= 1 && messageSelector <= 3)){
             if(LoadingTimer.noException){
                 LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageSelector: " + messageSelector + "  (Expected range: 1-3)");
+                Thread.dumpStack();
             } else {
             throw new IndexOutOfBoundsException("Invalid value for int messageSelector has been given: " + messageSelector + " ");
             }

@@ -33,6 +33,7 @@ public class ToastExecutor {
         if(!(messageToastSelector == 1)){
             if(LoadingTimer.noException){
                 LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageToastSelector: " + messageToastSelector + "  (Expected range: 1)");
+                Thread.dumpStack();
             }
             throw new IndexOutOfBoundsException("Invalid value for int messageToastSelector has been given: " + messageToastSelector + " ");
         }

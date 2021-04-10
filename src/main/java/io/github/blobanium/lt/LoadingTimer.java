@@ -69,6 +69,7 @@ public class LoadingTimer implements ModInitializer {
 		if (!(hasGameStarted >= 1 && hasGameStarted <= 4)) {
 			if(noException){
 				LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-4)");
+				Thread.dumpStack();
 			} else {
 			throw new IndexOutOfBoundsException("Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
 			}
