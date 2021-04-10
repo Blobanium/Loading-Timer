@@ -24,6 +24,9 @@
     ],
     "server":[
       "io.github.blobanium.lt.LoadingTimerServer"
+    ],
+    "preLaunch":[
+      "io.github.blobanium.lt.LoadingTimerPreLaunch"
     ]
   },
   "mixins": 

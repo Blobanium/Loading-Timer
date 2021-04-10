@@ -28,7 +28,6 @@ public class LoadingTimer implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		configRegister();
 		LOGGER.info("Loading Timer initialized!");
 		finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		TimeLogger.loggerMessage(1, finalResult, "");
@@ -90,9 +89,9 @@ public class LoadingTimer implements ModInitializer {
 		ToastExecutor.executeToast(finalResultToast, 1);
 	}
 
-	public void configRegister(){
+	public static void configRegister(){
 		LOGGER.debug("Registering config..");
-		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(this::ltProvider).request();
+		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(namespace -> ltProvider(namespace)).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false); 
 		final boolean noExceptionConfig = CONFIG.getOrDefault("no_exception", false); 
 		if (insanePrecision) {
@@ -105,7 +104,7 @@ public class LoadingTimer implements ModInitializer {
 		}
 	}
 
-	private String ltProvider(String filename) {
+	private static String ltProvider(String filename) {
 		return "#Loading timer Config File."
 		+ "\ninsane_precision=false #Makes the result of the loading time way more precise. (Currently Broken at the moment)"
 		+ "\nno_exception=false #Logs fatal errors in the log output instead of throwing an exception. Only Works for this mod ONLY, and leave this off unless you know what your doing (Experimental)";
