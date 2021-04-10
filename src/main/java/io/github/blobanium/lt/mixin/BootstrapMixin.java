@@ -11,7 +11,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BootstrapMixin {
     @Inject(at = @At("HEAD"), method = "initialize()V")
     private static void initialize(CallbackInfo info){
-        LoadingTimer.startingTime = System.currentTimeMillis();
-        LoadingTimer.startingTimeNano = System.nanoTime();
     }
 }
