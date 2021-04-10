@@ -106,7 +106,7 @@ public class LoadingTimer implements ModInitializer {
 
 	private static String ltProvider(String filename) {
 		return "#Loading timer Config File."
-		+ "\ninsane_precision=false #Makes the result of the loading time way more precise. (Currently Broken at the moment)"
-		+ "\nno_exception=false #Logs fatal errors in the log output instead of throwing an exception. Only Works for this mod ONLY, and leave this off unless you know what your doing (Experimental)";
+		+ "\ninsane_precision=false"
+		+ "\nno_exception=false";
 	}
 }
