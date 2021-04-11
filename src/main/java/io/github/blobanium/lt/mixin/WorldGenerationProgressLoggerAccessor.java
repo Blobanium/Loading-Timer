@@ -8,5 +8,5 @@ import net.minecraft.server.WorldGenerationProgressLogger;
 @Mixin(WorldGenerationProgressLogger.class)
 public interface WorldGenerationProgressLoggerAccessor {
     @Accessor
-    long getstartTime();
+    long getStartTime();
 }
