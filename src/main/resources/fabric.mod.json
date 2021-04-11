@@ -45,6 +45,11 @@
     "modupdater": {
       "strategy": "curseforge",
       "projectID": 450817
+    },
+    "modmenu":{
+      "links":{
+        "Discord": "https://discord.gg/GkZtk5RkyG" 
+      }
     }
   }
 }
