@@ -22,10 +22,4 @@ This project is licensed under the MIT License.
 
 ## Repo Stats
 
-### Github
-
  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Blobanium/Loading-Timer/build?style=for-the-badge) ![GitHub issues](https://img.shields.io/github/issues-raw/Blobanium/Loading-Timer?style=for-the-badge)
-
-### Code Climate
-
-![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/Blobanium/Loading-Timer?style=for-the-badge) ![Code Climate issues](https://img.shields.io/codeclimate/issues/Blobanium/Loading-Timer?style=for-the-badge) ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/Blobanium/Loading-Timer?style=for-the-badge)
