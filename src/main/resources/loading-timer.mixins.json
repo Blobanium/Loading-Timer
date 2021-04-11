@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "LoadModMixin"
+    "LoadModMixin",
+    "WorldGenerationProgressLoggerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
