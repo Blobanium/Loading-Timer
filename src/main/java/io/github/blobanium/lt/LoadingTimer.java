@@ -118,7 +118,7 @@ public class LoadingTimer implements ModInitializer {
 	}
 
 	private static String ltProvider(String filename) {
-		return "#Loading timer Config File."
+		return "#Loading timer Config File. For more details on what these options do, go to https://github.com/Blobanium/Loading-Timer/wiki/Config-Guide."
 		+ "\ninsane_precision=false"
 		+ "\nno_exception=false";
 	}
