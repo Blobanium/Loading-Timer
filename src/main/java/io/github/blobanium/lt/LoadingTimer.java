@@ -70,7 +70,7 @@ public class LoadingTimer implements ModInitializer {
 			} else {
 				
 				if(!resizeError){
-					LOGGER.error("Please refrain from changing resolutions during startup, as it may cause issues");
+					LOGGER.warn("Please refrain from changing resolutions during startup, as it may cause issues");
 					resizeError = true;
 				}
 				resV = MinecraftClient.getInstance().currentScreen.height;
