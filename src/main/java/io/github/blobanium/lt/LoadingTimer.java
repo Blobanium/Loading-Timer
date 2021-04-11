@@ -25,6 +25,9 @@ public class LoadingTimer implements ModInitializer {
 	public static boolean timerDone = false;
 	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 	public static boolean noException = false;
+	static int resV = 0;
+	static int resH = 0;
+	static boolean resizeError = false;
 
 	@Override
 	public void onInitialize() {
@@ -35,34 +38,43 @@ public class LoadingTimer implements ModInitializer {
 	}
 
 	public static void load() {
-		// The "Load" Procedure Runs twice, one for initialization and the other for
-		// loading completely
-		// This is controlled by the variable called "hasGameStarted"
 		finalResult = MathUtil.calculateMain(STARTINGTIME2);
 		if (hasGameStarted == 0) {
 			hasGameStarted = 1;
 			if (MinecraftClient.getInstance().options.fullscreen) {
 				isClientFullscreen = true;
 			}
+			resV = MinecraftClient.getInstance().currentScreen.height;
+			resH = MinecraftClient.getInstance().currentScreen.width;
 		} else {
-			if (isClientFullscreen && !FabricLoader.getInstance().isModLoaded("architectury")) {
-				if(hasGameStarted == 1){
-					hasGameStarted = 2;
-				} else {
-					if(hasGameStarted == 2){
-						hasGameStarted = 3;
+			if(resV == MinecraftClient.getInstance().currentScreen.height && resH == MinecraftClient.getInstance().currentScreen.width){
+				if (isClientFullscreen && !FabricLoader.getInstance().isModLoaded("architectury")) {
+					if(hasGameStarted == 1){
+						hasGameStarted = 2;
 					} else {
-						if(hasGameStarted == 3){
-							hasGameStarted = 4;
-							lastMessage();
+						if(hasGameStarted == 2){
+							hasGameStarted = 3;
+						} else {
+							if(hasGameStarted == 3){
+								hasGameStarted = 4;
+								lastMessage();
+							}
 						}
+					}
+				} else {
+					if (hasGameStarted == 1) {
+						hasGameStarted = 4;
+						lastMessage();
 					}
 				}
 			} else {
-				if (hasGameStarted == 1) {
-					hasGameStarted = 4;
-					lastMessage();
+				
+				if(!resizeError){
+					LOGGER.error("Please refrain from changing resolutions during startup, as it may cause issues");
+					resizeError = true;
 				}
+				resV = MinecraftClient.getInstance().currentScreen.height;
+				resH = MinecraftClient.getInstance().currentScreen.width;
 			}
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
