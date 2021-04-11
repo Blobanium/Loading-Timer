@@ -2,9 +2,6 @@
 
 Find us on [Modrinth](https://modrinth.com/mod/loading-timer) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/loading-timer)!
 
-## LTS
-
-This project is in LTS(Because i kinda ran out of ideas for this mod.), Feel free to submit suggestions for this mod as i'll will still work on other suggestions.
 
 ## What is this?
 
