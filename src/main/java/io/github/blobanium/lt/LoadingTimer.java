@@ -106,7 +106,8 @@ public class LoadingTimer implements ModInitializer {
 		LOGGER.debug("Registering config..");
 		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(namespace -> ltProvider(namespace)).request();
 		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false); 
-		final boolean noExceptionConfig = CONFIG.getOrDefault("no_exception", false); 
+		final boolean noExceptionConfig = CONFIG.getOrDefault("no_exception", false);
+		final boolean worldLoadTime = CONFIG.getOrDefault("world_loading_timer", false);
 		if (insanePrecision) {
 			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
@@ -115,11 +116,15 @@ public class LoadingTimer implements ModInitializer {
 		if(noExceptionConfig){
 			noException = true;
 		}
+		if(worldLoadTime){
+			//This Config is still in WIP, currently, it does nothing.
+		}
 	}
 
 	private static String ltProvider(String filename) {
 		return "#Loading timer Config File. For more details on what these options do, go to https://github.com/Blobanium/Loading-Timer/wiki/Config-Guide."
 		+ "\ninsane_precision=false"
-		+ "\nno_exception=false";
+		+ "\nno_exception=false"
+		+ "\nworld_loading_timer=false";
 	}
 }
