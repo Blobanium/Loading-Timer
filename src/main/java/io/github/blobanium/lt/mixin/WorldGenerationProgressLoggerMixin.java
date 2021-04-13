@@ -18,6 +18,6 @@ public class WorldGenerationProgressLoggerMixin {
 
     @Inject(at = @At("HEAD"), method = "stop")
     private void stop(CallbackInfo ci){
-        System.out.println("Stop");
+        WorldLoadingTime.stop();
     }
 }
