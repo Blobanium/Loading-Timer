@@ -1,6 +1,7 @@
 package io.github.blobanium.lt.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -30,10 +31,15 @@ public class WorldGenerationProgressLoggerMixin {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "stop")
-    private void stop(CallbackInfo ci){
+    /**
+     * @reason Replace the "Time elapsed" log message in order to allow support for insane precision (And for other future purposes).
+     * @author Blobanium
+     */
+    @Overwrite
+    public void stop(){
         double worldTime = MathUtil.calculateMain(worldStartingTime);
-        double worldTimeMillis = MathUtil.roundValue(worldTime * 1000);
-        LOGGER.info("Time elapsed: " + worldTimeMillis + " ms");
+        double worldTimeRounded = MathUtil.roundValue(worldTime);
+        double worldTimeRoundMillis = MathUtil.roundValue(worldTime * 1000);
+        LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
     }
 }
