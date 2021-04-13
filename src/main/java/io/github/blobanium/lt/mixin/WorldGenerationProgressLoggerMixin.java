@@ -22,13 +22,11 @@ public class WorldGenerationProgressLoggerMixin {
 
     @Inject(at = @At("HEAD"), method = "start")
     private void start(CallbackInfo ci){
-        if(LoadingTimer.worldLoadTime){
             if(LoadingTimer.insanePrecision){
                 worldStartingTime = System.nanoTime();
             } else {
                 worldStartingTime = System.currentTimeMillis();
             }
-        }
     }
 
     /**
@@ -41,5 +39,8 @@ public class WorldGenerationProgressLoggerMixin {
         double worldTimeRounded = MathUtil.roundValue(worldTime);
         double worldTimeRoundMillis = MathUtil.roundValue(worldTime * 1000);
         LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
+        if(LoadingTimer.worldLoadTime){
+            
+        }
     }
 }
