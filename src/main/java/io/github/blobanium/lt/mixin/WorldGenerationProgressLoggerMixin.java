@@ -11,12 +11,11 @@ import net.minecraft.server.WorldGenerationProgressLogger;
 public class WorldGenerationProgressLoggerMixin {
     @Inject(at = @At("HEAD"), method = "start")
     private void start(){
-        System.out.println("start");
+        System.out.println("Start");
     }
 
     @Inject(at = @At("HEAD"), method = "stop")
     private void stop(){
-        System.out.println("stop");
+        System.out.println("Stop");
     }
-
 }
