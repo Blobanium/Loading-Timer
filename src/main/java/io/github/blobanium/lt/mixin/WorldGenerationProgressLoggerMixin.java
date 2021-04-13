@@ -7,12 +7,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.server.WorldGenerationProgressLogger;
 
-//how to convert a accessor into a mixin
+import io.github.blobanium.lt.world.WorldLoadingTime;
+
 @Mixin(WorldGenerationProgressLogger.class)
 public class WorldGenerationProgressLoggerMixin {
     @Inject(at = @At("HEAD"), method = "start")
     private void start(CallbackInfo ci){
-        System.out.println("Start");
+        WorldLoadingTime.start();
     }
 
     @Inject(at = @At("HEAD"), method = "stop")
