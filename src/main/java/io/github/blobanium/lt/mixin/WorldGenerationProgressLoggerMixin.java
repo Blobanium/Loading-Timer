@@ -38,8 +38,13 @@ public class WorldGenerationProgressLoggerMixin {
     public void stop(){
         double worldTime = MathUtil.calculateMain(worldStartingTime);
         double worldTimeRounded = MathUtil.roundValue(worldTime);
-        double worldTimeRoundMillis = MathUtil.roundValue(worldTime * 1000);
-        LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
+        if(LoadingTimer.insanePrecision){
+            double worldTimeRoundMillis = MathUtil.roundValue(worldTime * 1000);
+            LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
+        } else {
+            long worldTimeRoundMillis = Double.valueOf(MathUtil.roundValue(worldTime * 1000)).longValue();
+            LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
+        }
         if(LoadingTimer.worldLoadTime){
             ToastExecutor.executeToast(worldTimeRounded, 2);
         }
