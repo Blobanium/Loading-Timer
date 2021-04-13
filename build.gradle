@@ -30,7 +30,7 @@ dependencies {
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
 
-	include "io.github.ladysnake:vanguard:${vanguard_version}"
+	modCompileOnly "io.github.ladysnake:vanguard:${vanguard_version}"
 	modCompileOnly "com.thebrokenrail:modupdater:${modupdater_version}+${modupdater_minecraft_version}"
 }
 
