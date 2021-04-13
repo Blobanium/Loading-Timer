@@ -1,11 +1,12 @@
 package io.github.blobanium.lt.util.math;
 
+import io.github.blobanium.lt.LoadingTimer;
+
 public class MathUtil {
     public static int tenMulti = 1000;
-    public static boolean mathUtilIPConfig = false;
 
     public static double calculateMain(long startingTimeMathUtil) {
-        if (mathUtilIPConfig) {
+        if (LoadingTimer.insanePrecision) {
             tenMulti = 1000000000;
             long timeToLoad = System.nanoTime() - startingTimeMathUtil;
             long tTLDeductor = timeToLoad/tenMulti;

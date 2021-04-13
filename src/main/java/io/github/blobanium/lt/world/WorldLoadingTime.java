@@ -6,6 +6,6 @@ public class WorldLoadingTime {
 	public static long startingTimeNano = System.nanoTime();
 
     public static void start(){
-
+        
     }
 }

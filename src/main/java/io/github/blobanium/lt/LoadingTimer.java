@@ -29,6 +29,7 @@ public class LoadingTimer implements ModInitializer {
 	static int resH = 0;
 	static boolean resizeError = false;
 	public static boolean worldLoadTime = false;
+	public static boolean insanePrecision = false;
 
 	@Override
 	public void onInitialize() {
@@ -106,13 +107,13 @@ public class LoadingTimer implements ModInitializer {
 	public static void configRegister(){
 		LOGGER.debug("Registering config..");
 		SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(namespace -> ltProvider(namespace)).request();
-		final boolean insanePrecision = CONFIG.getOrDefault("insane_precision", false); 
+		final boolean insanePrecisionConfig = CONFIG.getOrDefault("insane_precision", false); 
 		final boolean noExceptionConfig = CONFIG.getOrDefault("no_exception", false);
 		final boolean worldLoadTimeConfig = CONFIG.getOrDefault("world_loading_timer", false);
-		if (insanePrecision) {
+		if (insanePrecisionConfig) {
 			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
-			MathUtil.mathUtilIPConfig = true;
+			insanePrecision = true;
 		}
 		if(noExceptionConfig){
 			noException = true;
