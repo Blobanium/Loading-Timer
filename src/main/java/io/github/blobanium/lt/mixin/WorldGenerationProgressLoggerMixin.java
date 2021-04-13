@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.server.WorldGenerationProgressLogger;
 
 import io.github.blobanium.lt.LoadingTimer;
+import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
 
 import org.apache.logging.log4j.LogManager;
@@ -40,7 +41,7 @@ public class WorldGenerationProgressLoggerMixin {
         double worldTimeRoundMillis = MathUtil.roundValue(worldTime * 1000);
         LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
         if(LoadingTimer.worldLoadTime){
-            
+            ToastExecutor.executeToast(worldTimeRounded, 2);
         }
     }
 }

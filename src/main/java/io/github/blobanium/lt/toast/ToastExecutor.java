@@ -29,10 +29,16 @@ public class ToastExecutor {
                 MinecraftClient.getInstance().getToastManager().add(toast);
             }
         }
-    
-        if(!(messageToastSelector == 1)){
+
+        if(messageToastSelector == 2){
+            SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT,
+            new TranslatableText("loading-timer.title"), new TranslatableText("loading-timer.world_message_text", toastTimeValue));
+            MinecraftClient.getInstance().getToastManager().add(toast);
+        }
+
+        if(!(messageToastSelector >= 1 && messageToastSelector <= 2)){
             if(LoadingTimer.noException){
-                LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageToastSelector: " + messageToastSelector + "  (Expected range: 1)");
+                LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageToastSelector: " + messageToastSelector + "  (Expected range: 1-2)");
                 Thread.dumpStack();
             }
             throw new IndexOutOfBoundsException("Invalid value for int messageToastSelector has been given: " + messageToastSelector + " ");

@@ -1,5 +1,6 @@
 {
     "loading-timer.title": "Loading Timer",
     "loading-timer.title_ee": "Laoding Timer",
-    "loading-timer.message_text": "Minecraft took %d seconds to load"
+    "loading-timer.message_text": "Minecraft took %d seconds to load",
+    "loading-timer.world_message_text": "It took %d seconds to load into/generate this world"
 }
