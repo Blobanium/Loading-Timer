@@ -16,8 +16,8 @@ import org.apache.logging.log4j.Logger;
 @Mixin(WorldGenerationProgressLogger.class)
 public class WorldGenerationProgressLoggerMixin {
 
-    public static long worldStartingTime;
-    public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+    private static long worldStartingTime;
+    private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
     @Inject(at = @At("HEAD"), method = "start")
     private void start(CallbackInfo ci){
@@ -33,6 +33,7 @@ public class WorldGenerationProgressLoggerMixin {
     @Inject(at = @At("HEAD"), method = "stop")
     private void stop(CallbackInfo ci){
         double worldTime = MathUtil.calculateMain(worldStartingTime);
-        LOGGER.info(worldTime);
+        double worldTimeMillis = MathUtil.roundValue(worldTime * 1000);
+        LOGGER.info("Time elapsed: " + worldTimeMillis + " ms");
     }
 }
