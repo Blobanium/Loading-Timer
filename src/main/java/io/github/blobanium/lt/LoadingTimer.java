@@ -51,7 +51,7 @@ public class LoadingTimer implements ModInitializer {
 			resH = MinecraftClient.getInstance().currentScreen.width;
 		} else {
 			if(resV == MinecraftClient.getInstance().currentScreen.height && resH == MinecraftClient.getInstance().currentScreen.width){
-				if (isClientFullscreen && !FabricLoader.getInstance().isModLoaded("architectury")) {
+				if (isClientFullscreen) {
 					if(hasGameStarted == 1){
 						hasGameStarted = 2;
 						LOGGER.debug("hasGameStarted=2");
@@ -59,17 +59,12 @@ public class LoadingTimer implements ModInitializer {
 						if(hasGameStarted == 2){
 							hasGameStarted = 3;
 							LOGGER.debug("hasGameStarted=3");
-						} else {
-							if(hasGameStarted == 3){
-								hasGameStarted = 4;
-								LOGGER.debug("hasGameStarted=4");
-								lastMessage();
-							}
+							lastMessage();
 						}
 					}
 				} else {
 					if (hasGameStarted == 1) {
-						hasGameStarted = 4;
+						hasGameStarted = 3;
 						lastMessage();
 					}
 				}
@@ -84,9 +79,9 @@ public class LoadingTimer implements ModInitializer {
 			}
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
-		if (!(hasGameStarted >= 1 && hasGameStarted <= 4)) {
+		if (!(hasGameStarted >= 1 && hasGameStarted <= 3)) {
 			if(noException){
-				LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-4)");
+				LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-3)");
 				Thread.dumpStack();
 			} else {
 			throw new IndexOutOfBoundsException("Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
