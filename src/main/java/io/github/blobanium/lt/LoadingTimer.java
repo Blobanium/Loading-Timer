@@ -46,6 +46,7 @@ public class LoadingTimer implements ModInitializer {
 			if (MinecraftClient.getInstance().options.fullscreen) {
 				isClientFullscreen = true;
 			}
+			LOGGER.debug("hasGameStarted=1");
 			resV = MinecraftClient.getInstance().currentScreen.height;
 			resH = MinecraftClient.getInstance().currentScreen.width;
 		} else {
@@ -53,12 +54,15 @@ public class LoadingTimer implements ModInitializer {
 				if (isClientFullscreen && !FabricLoader.getInstance().isModLoaded("architectury")) {
 					if(hasGameStarted == 1){
 						hasGameStarted = 2;
+						LOGGER.debug("hasGameStarted=2");
 					} else {
 						if(hasGameStarted == 2){
 							hasGameStarted = 3;
+							LOGGER.debug("hasGameStarted=3");
 						} else {
 							if(hasGameStarted == 3){
 								hasGameStarted = 4;
+								LOGGER.debug("hasGameStarted=4");
 								lastMessage();
 							}
 						}
