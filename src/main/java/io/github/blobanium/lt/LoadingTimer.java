@@ -21,6 +21,7 @@ public class LoadingTimer implements ModInitializer {
 	public static byte hasGameStarted = 0;
 	public static double loadMemory = 0;
 	private static boolean isClientFullscreen = false;
+	private static boolean isClientFullscreen2 = false;
 	public static double finalResult = 0;
 	public static boolean timerDone = false;
 	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
@@ -45,6 +46,7 @@ public class LoadingTimer implements ModInitializer {
 			hasGameStarted = 1;
 			if (MinecraftClient.getInstance().options.fullscreen) {
 				isClientFullscreen = true;
+				isClientFullscreen2 = true;
 			}
 			LOGGER.debug("hasGameStarted=1");
 			resV = MinecraftClient.getInstance().currentScreen.height;
@@ -69,10 +71,13 @@ public class LoadingTimer implements ModInitializer {
 					}
 				}
 			} else {
-				
 				if(!resizeError){
-					LOGGER.warn("Please refrain from changing resolutions during startup, as it may cause issues");
+					if(isClientFullscreen2){
+						isClientFullscreen2 = false;
+					} else {
+					LOGGER.warn("Please refrain from changing resolutions during startup, as it may cause issues.");
 					resizeError = true;
+					}
 				}
 				resV = MinecraftClient.getInstance().currentScreen.height;
 				resH = MinecraftClient.getInstance().currentScreen.width;
