@@ -6,7 +6,6 @@ import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.config.SimpleConfig;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.client.MinecraftClient;
 
