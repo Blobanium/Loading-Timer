@@ -30,6 +30,7 @@ public class LoadingTimer implements ModInitializer {
 	static boolean resizeError = false;
 	public static boolean worldLoadTime = false;
 	public static boolean insanePrecision = false;
+	public static boolean resourceLoadPercent = false;
 
 	@Override
 	public void onInitialize() {
@@ -113,6 +114,7 @@ public class LoadingTimer implements ModInitializer {
 		final boolean insanePrecisionConfig = CONFIG.getOrDefault("insane_precision", false); 
 		final boolean noExceptionConfig = CONFIG.getOrDefault("no_exception", false);
 		final boolean worldLoadTimeConfig = CONFIG.getOrDefault("world_loading_timer", false);
+		final boolean resourceLoadPercentConfig = CONFIG.getOrDefault("show_resource_load_percent", false);
 		if (insanePrecisionConfig) {
 			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
@@ -124,12 +126,16 @@ public class LoadingTimer implements ModInitializer {
 		if(worldLoadTimeConfig){
 			worldLoadTime = true;
 		}
+		if(resourceLoadPercentConfig){
+			resourceLoadPercent = true;
+		}
 	}
 
 	private static String ltProvider(String filename) {
 		return "#Loading timer Config File. For more details on what these options do, go to https://github.com/Blobanium/Loading-Timer/wiki/Config-Guide."
 		+ "\ninsane_precision=false"
 		+ "\nno_exception=false"
-		+ "\nworld_loading_timer=false";
+		+ "\nworld_loading_timer=false"
+		+ "\nshow_resource_load_percent=false";
 	}
 }
