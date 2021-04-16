@@ -1,6 +1,7 @@
 package io.github.blobanium.lt.util.resource;
 
 import io.github.blobanium.lt.LoadingTimer;
+import io.github.blobanium.lt.util.math.MathUtil;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,10 +19,6 @@ public class ResourceLoadingTimer {
     }
 
     public static void stopTimer(){
-        if(LoadingTimer.insanePrecision){
-            LOGGER.info(System.nanoTime() - resourceStartingTime);
-        } else {
-            LOGGER.info(System.currentTimeMillis() - resourceStartingTime);
-        }
+        LOGGER.info("Resource Loading Time: " + MathUtil.calculateMain(resourceStartingTime) + " seconds");
     }
 }
