@@ -26,11 +26,16 @@ public class ResourceReloaderMixin {
             if(LoadingTimer.resourceLoadPercent){
             LOGGER.info("Resource loading progress: " + MathUtil.roundValue(loadPercent) + " %");
             }
-            if(loadPercent == 100){
-                ResourceLoadingTimer.stopTimer();
-            }
             lastReading = ci.getReturnValueF();
         }
         return ci.getReturnValueF();
+    }
+
+    @Inject(at = @At("TAIL"), method = "isApplyStageComplete")
+    private boolean isApplyStageComplete(CallbackInfoReturnable<Boolean> ci){
+        if(ci.getReturnValueZ()){
+            ResourceLoadingTimer.stopTimer();
+        }
+        return ci.getReturnValueZ();
     }
 }
