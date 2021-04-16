@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import io.github.blobanium.lt.util.resource.ResourceLoadingTimer;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,5 +20,6 @@ public class ReloadableResourceManagerImplMixin {
     @Inject(at = @At("HEAD"), method = "beginMonitoredReload")
     private void beginMonitoredReload(CallbackInfoReturnable<ResourceReloadMonitor> ci){
         LOGGER.info("test");
+        ResourceLoadingTimer.startTimer();
     }
 }

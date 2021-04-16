@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import io.github.blobanium.lt.LoadingTimer;
 import io.github.blobanium.lt.util.math.MathUtil;
+import io.github.blobanium.lt.util.resource.ResourceLoadingTimer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,9 +21,14 @@ public class ResourceReloaderMixin {
 
     @Inject(at = @At("TAIL"), method = "getProgress")
     private float getProgress(CallbackInfoReturnable<Float> ci){
-        float loadPrecent = (ci.getReturnValueF() * 100);
-        if((!(lastReading == ci.getReturnValueF())) && LoadingTimer.resourceLoadPercent){
-            LOGGER.info("Resource loading progress: " + MathUtil.roundValue(loadPrecent) + " %");
+        float loadPercent = (ci.getReturnValueF() * 100);
+        if(!(lastReading == ci.getReturnValueF())){
+            if(LoadingTimer.resourceLoadPercent){
+            LOGGER.info("Resource loading progress: " + MathUtil.roundValue(loadPercent) + " %");
+            }
+            if(loadPercent == 100){
+                ResourceLoadingTimer.stopTimer();
+            }
             lastReading = ci.getReturnValueF();
         }
         return ci.getReturnValueF();
