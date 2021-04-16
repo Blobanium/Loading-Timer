@@ -10,16 +10,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import io.github.blobanium.lt.util.resource.ResourceLoadingTimer;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 @Mixin(ReloadableResourceManagerImpl.class)
 public class ReloadableResourceManagerImplMixin {
-    private static final Logger LOGGER = LogManager.getLogger("Minecraft");
-
     @Inject(at = @At("HEAD"), method = "beginMonitoredReload")
     private void beginMonitoredReload(CallbackInfoReturnable<ResourceReloadMonitor> ci){
-        LOGGER.info("test");
         ResourceLoadingTimer.startTimer();
     }
 }
