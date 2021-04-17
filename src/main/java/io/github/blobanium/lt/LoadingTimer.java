@@ -32,6 +32,7 @@ public class LoadingTimer implements ModInitializer {
 	public static boolean insanePrecision = false;
 	public static boolean resourceLoadPercent = false;
 	public static boolean resourceLoadNotif = false;
+	public static boolean resourceLoadNotifStartupOverride = false;
 
 	@Override
 	public void onInitialize() {
@@ -117,6 +118,7 @@ public class LoadingTimer implements ModInitializer {
 		final boolean worldLoadTimeConfig = CONFIG.getOrDefault("world_loading_timer", false);
 		final boolean resourceLoadPercentConfig = CONFIG.getOrDefault("show_resource_load_percent", false);
 		final boolean resourceLoadNotifConfig = CONFIG.getOrDefault("resource_loading_notification", false);
+		final boolean resourceLoadNotifStartupOverrideConfig = CONFIG.getOrDefault("resource_loading_notif_override", false);
 		if (insanePrecisionConfig) {
 			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
@@ -134,6 +136,12 @@ public class LoadingTimer implements ModInitializer {
 		if(resourceLoadNotifConfig){
 			resourceLoadNotif = true;
 		}
+		if(resourceLoadNotifStartupOverrideConfig){
+			resourceLoadNotifStartupOverride = true;
+			if(!resourceLoadNotif){
+				LOGGER.warn("the resource_loading_notif_override config won't work unless resource_loading_notification is set to true!!");
+			}
+		}
 	}
 
 	private static String ltProvider(String filename) {
@@ -142,6 +150,7 @@ public class LoadingTimer implements ModInitializer {
 		+ "\nno_exception=false"
 		+ "\nworld_loading_timer=false"
 		+ "\nshow_resource_load_percent=false"
-		+ "\nresource_loading_notification=false";
+		+ "\nresource_loading_notification=false"
+		+ "\nresource_loading_notif_override=false";
 	}
 }

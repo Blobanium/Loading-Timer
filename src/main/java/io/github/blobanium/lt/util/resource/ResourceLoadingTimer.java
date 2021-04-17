@@ -24,7 +24,7 @@ public class ResourceLoadingTimer {
         resourceResult = MathUtil.roundValue(MathUtil.calculateMain(resourceStartingTime));
         LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
         if(LoadingTimer.resourceLoadNotif){
-            if(LoadingTimer.timerDone){
+            if(LoadingTimer.timerDone || LoadingTimer.resourceLoadNotifStartupOverride){
                 ToastExecutor.executeToast(resourceResult, 3);
             }
         }
