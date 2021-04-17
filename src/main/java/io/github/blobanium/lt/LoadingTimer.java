@@ -96,7 +96,6 @@ public class LoadingTimer implements ModInitializer {
 	}
 
 	public static void lastMessage(){
-		
 		TimeLogger.loggerMessage(2, finalResult, "");
 		double rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
 		if (rawLoadingTime < 0.05) {
@@ -107,6 +106,7 @@ public class LoadingTimer implements ModInitializer {
 		double finalResultToast = MathUtil.roundValue(finalResult);
 		// Send A System toast Once its done loading
 		ToastExecutor.executeToast(finalResultToast, 1);
+		timerDone = true;
 	}
 
 	public static void configRegister(){

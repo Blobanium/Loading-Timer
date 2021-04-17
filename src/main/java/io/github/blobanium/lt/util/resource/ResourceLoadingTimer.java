@@ -21,10 +21,12 @@ public class ResourceLoadingTimer {
     }
 
     public static void stopTimer(){
-        resourceResult = MathUtil.calculateMain(resourceStartingTime);
+        resourceResult = MathUtil.roundValue(MathUtil.calculateMain(resourceStartingTime));
         LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
         if(LoadingTimer.resourceLoadNotif){
-            ToastExecutor.executeToast(resourceResult, 3);
+            if(LoadingTimer.timerDone){
+                ToastExecutor.executeToast(resourceResult, 3);
+            }
         }
     }
 }
