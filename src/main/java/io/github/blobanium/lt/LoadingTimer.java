@@ -33,6 +33,7 @@ public class LoadingTimer implements ModInitializer {
 	public static boolean resourceLoadPercent = false;
 	public static boolean resourceLoadNotif = false;
 	public static boolean resourceLoadNotifStartupOverride = false;
+	public static boolean rawLoadingToast = false;
 
 	@Override
 	public void onInitialize() {
@@ -104,9 +105,15 @@ public class LoadingTimer implements ModInitializer {
 		} else {
 			TimeLogger.loggerMessage(3, rawLoadingTime, "");
 		}
-		double finalResultToast = MathUtil.roundValue(finalResult);
-		// Send A System toast Once its done loading
-		ToastExecutor.executeToast(finalResultToast, 1);
+		if(rawLoadingToast){
+			double finalResultToast = MathUtil.roundValue(rawLoadingTime);
+			// Send A System toast Once its done loading
+			ToastExecutor.executeToast(finalResultToast, 1);
+		} else {
+			double finalResultToast = MathUtil.roundValue(finalResult);
+			// Send A System toast Once its done loading
+			ToastExecutor.executeToast(finalResultToast, 1);
+		}
 		timerDone = true;
 	}
 
@@ -119,6 +126,7 @@ public class LoadingTimer implements ModInitializer {
 		final boolean resourceLoadPercentConfig = CONFIG.getOrDefault("show_resource_load_percent", false);
 		final boolean resourceLoadNotifConfig = CONFIG.getOrDefault("resource_loading_notification", false);
 		final boolean resourceLoadNotifStartupOverrideConfig = CONFIG.getOrDefault("resource_loading_notif_override", false);
+		final boolean rawLoadingToastConfig = CONFIG.getOrDefault("raw_loading_toast", false);
 		if (insanePrecisionConfig) {
 			LOGGER.debug("Insane Precision is on");
 			STARTINGTIME2 = startingTimeNano;
@@ -142,6 +150,9 @@ public class LoadingTimer implements ModInitializer {
 				LOGGER.warn("the resource_loading_notif_override config won't work unless resource_loading_notification is set to true!!");
 			}
 		}
+		if(rawLoadingToastConfig){
+			rawLoadingToast = true;
+		}
 	}
 
 	private static String ltProvider(String filename) {
@@ -151,6 +162,7 @@ public class LoadingTimer implements ModInitializer {
 		+ "\nworld_loading_timer=false"
 		+ "\nshow_resource_load_percent=false"
 		+ "\nresource_loading_notification=false"
-		+ "\nresource_loading_notif_override=false";
+		+ "\nresource_loading_notif_override=false"
+		+ "\nraw_loading_toast=false";
 	}
 }
