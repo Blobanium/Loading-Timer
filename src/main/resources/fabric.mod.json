@@ -35,7 +35,7 @@
     "fabricloader": ">=0.7.4",
     "minecraft": ["1.16.*", "1.17.*"]
   },
-  "suggests": {
+  "recommends": {
     "fabric": "*"
   },
   "custom": {
