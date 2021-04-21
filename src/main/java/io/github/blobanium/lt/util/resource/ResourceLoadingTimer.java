@@ -1,6 +1,7 @@
 package io.github.blobanium.lt.util.resource;
 
 import io.github.blobanium.lt.LoadingTimer;
+import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
 
@@ -13,7 +14,7 @@ public class ResourceLoadingTimer {
     public static double resourceResult;
 
     public static void startTimer(){
-        if(LoadingTimer.insanePrecision){
+        if(ConfigReader.insanePrecision){
             resourceStartingTime = System.nanoTime();
         } else {
             resourceStartingTime = System.currentTimeMillis();
@@ -23,8 +24,8 @@ public class ResourceLoadingTimer {
     public static void stopTimer(){
         resourceResult = MathUtil.roundValue(MathUtil.calculateMain(resourceStartingTime));
         LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
-        if(LoadingTimer.resourceLoadNotif){
-            if(LoadingTimer.timerDone || LoadingTimer.resourceLoadNotifStartupOverride){
+        if(ConfigReader.resourceLoadNotif){
+            if(LoadingTimer.timerDone || ConfigReader.resourceLoadNotifStartupOverride){
                 ToastExecutor.executeToast(resourceResult, 3);
             }
         }

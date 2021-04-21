@@ -3,6 +3,14 @@ package io.github.blobanium.lt.config;
 import io.github.blobanium.lt.LoadingTimer;
 
 public class ConfigReader {
+    public static boolean rawLoadingToast = false;
+    public static boolean resourceLoadNotifStartupOverride = false;
+    public static boolean resourceLoadNotif = false;
+    public static boolean resourceLoadPercent = false;
+    public static boolean insanePrecision = false;
+    public static boolean worldLoadTime = false;
+    public static boolean noException = false;
+
     public static void configRegister(){
     	LoadingTimer.LOGGER.debug("Registering config..");
     	SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(namespace -> ConfigReader.ltProvider(namespace)).request();
@@ -16,28 +24,28 @@ public class ConfigReader {
     	if (insanePrecisionConfig) {
     		LoadingTimer.LOGGER.debug("Insane Precision is on");
     		LoadingTimer.STARTINGTIME2 = LoadingTimer.startingTimeNano;
-    		LoadingTimer.insanePrecision = true;
+    		insanePrecision = true;
     	}
     	if(noExceptionConfig){
-    		LoadingTimer.noException = true;
+    		noException = true;
     	}
     	if(worldLoadTimeConfig){
-    		LoadingTimer.worldLoadTime = true;
+    		worldLoadTime = true;
     	}
     	if(resourceLoadPercentConfig){
-    		LoadingTimer.resourceLoadPercent = true;
+    		resourceLoadPercent = true;
     	}
     	if(resourceLoadNotifConfig){
-    		LoadingTimer.resourceLoadNotif = true;
+    		resourceLoadNotif = true;
     	}
     	if(resourceLoadNotifStartupOverrideConfig){
-    		LoadingTimer.resourceLoadNotifStartupOverride = true;
-    		if(!LoadingTimer.resourceLoadNotif){
+    		resourceLoadNotifStartupOverride = true;
+    		if(!resourceLoadNotif){
     			LoadingTimer.LOGGER.warn("the resource_loading_notif_override config won't work unless resource_loading_notification is set to true!!");
     		}
     	}
     	if(rawLoadingToastConfig){
-    		ConfigReader.rawLoadingToast = true;
+    		rawLoadingToast = true;
     	}
     }
 
@@ -51,7 +59,5 @@ public class ConfigReader {
     	+ "\nresource_loading_notif_override=false"
     	+ "\nraw_loading_toast=false";
     }
-
-    public static boolean rawLoadingToast = false;
     
 }

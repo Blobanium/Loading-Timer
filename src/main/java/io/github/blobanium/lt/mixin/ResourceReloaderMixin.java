@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import io.github.blobanium.lt.LoadingTimer;
+import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.util.math.MathUtil;
 import io.github.blobanium.lt.util.resource.ResourceLoadingTimer;
 
@@ -23,7 +23,7 @@ public class ResourceReloaderMixin {
     private float getProgress(CallbackInfoReturnable<Float> ci){
         float loadPercent = (ci.getReturnValueF() * 100);
         if(!(lastReading == ci.getReturnValueF())){
-            if(LoadingTimer.resourceLoadPercent){
+            if(ConfigReader.resourceLoadPercent){
             LOGGER.info("Resource loading progress: " + MathUtil.roundValue(loadPercent) + " %");
             }
             lastReading = ci.getReturnValueF();

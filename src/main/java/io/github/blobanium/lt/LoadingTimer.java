@@ -23,16 +23,10 @@ public class LoadingTimer implements ModInitializer {
 	public static double finalResult = 0;
 	public static boolean timerDone = false;
 	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
-	public static boolean noException = false;
 	static int resV = 0;
 	static int resH = 0;
 	static boolean resizeError = false;
-	public static boolean worldLoadTime = false;
-	public static boolean insanePrecision = false;
-	public static boolean resourceLoadPercent = false;
-	public static boolean resourceLoadNotif = false;
-	public static boolean resourceLoadNotifStartupOverride = false;
-	
+
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Loading Timer initialized!");
@@ -86,7 +80,7 @@ public class LoadingTimer implements ModInitializer {
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
 		if (!(hasGameStarted >= 1 && hasGameStarted <= 3)) {
-			if(noException){
+			if(ConfigReader.noException){
 				LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-3)");
 				Thread.dumpStack();
 			} else {

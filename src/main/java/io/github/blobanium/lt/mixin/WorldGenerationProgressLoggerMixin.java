@@ -7,8 +7,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.server.WorldGenerationProgressLogger;
-
-import io.github.blobanium.lt.LoadingTimer;
+import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
 
@@ -23,7 +22,7 @@ public class WorldGenerationProgressLoggerMixin {
 
     @Inject(at = @At("HEAD"), method = "start")
     private void start(CallbackInfo ci){
-            if(LoadingTimer.insanePrecision){
+            if(ConfigReader.insanePrecision){
                 worldStartingTime = System.nanoTime();
             } else {
                 worldStartingTime = System.currentTimeMillis();
@@ -38,14 +37,14 @@ public class WorldGenerationProgressLoggerMixin {
     public void stop(){
         double worldTime = MathUtil.calculateMain(worldStartingTime);
         double worldTimeRounded = MathUtil.roundValue(worldTime);
-        if(LoadingTimer.insanePrecision){
+        if(ConfigReader.insanePrecision){
             double worldTimeRoundMillis = MathUtil.roundValue(worldTime * 1000);
             LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
         } else {
             long worldTimeRoundMillis = Double.valueOf(MathUtil.roundValue(worldTime * 1000)).longValue();
             LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
         }
-        if(LoadingTimer.worldLoadTime){
+        if(ConfigReader.worldLoadTime){
             ToastExecutor.executeToast(worldTimeRounded, 2);
         }
     }
