@@ -6,6 +6,8 @@ import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import io.github.blobanium.lt.config.ConfigReader;
+
 public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
     public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
@@ -14,7 +16,7 @@ public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
         LoadingTimer.startingTime = System.currentTimeMillis();
         LoadingTimer.startingTimeNano = System.nanoTime();
         checkCompat();
-        LoadingTimer.configRegister();
+        ConfigReader.configRegister();
     }
 
     public static void checkCompat(){
