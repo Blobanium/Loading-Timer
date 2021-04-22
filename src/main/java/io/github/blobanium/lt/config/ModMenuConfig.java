@@ -62,6 +62,12 @@ public class ModMenuConfig implements ModMenuApi {
                 .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue) // Recommended: Called when user save the config
                 .build()); // Builds the option entry for cloth config
 
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.resource_load_notif_override"), ConfigReader.resourceLoadNotifStartupOverride)
+                .setDefaultValue(false) // Recommended: Used when user click "Reset"
+                .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
+                .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue) // Recommended: Called when user save the config
+                .build()); // Builds the option entry for cloth config
+
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.resource_load_percent"), ConfigReader.resourceLoadPercent)
                 .setDefaultValue(false) // Recommended: Used when user click "Reset"
                 .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
