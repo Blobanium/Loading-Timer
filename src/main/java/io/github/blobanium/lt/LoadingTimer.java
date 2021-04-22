@@ -101,7 +101,6 @@ public class LoadingTimer implements ModInitializer {
 			ToastExecutor.executeToast(finalResultToast, 1);
 		} else {
 			double finalResultToast = MathUtil.roundValue(finalResult);
-			// Send A System toast Once its done loading
 			ToastExecutor.executeToast(finalResultToast, 1);
 		}
 		timerDone = true;
