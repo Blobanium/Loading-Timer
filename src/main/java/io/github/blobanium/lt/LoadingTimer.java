@@ -44,8 +44,7 @@ public class LoadingTimer implements ModInitializer {
 				isClientFullscreen2 = true;
 			}
 			LOGGER.debug("hasGameStarted=1");
-			resV = MinecraftClient.getInstance().currentScreen.height;
-			resH = MinecraftClient.getInstance().currentScreen.width;
+			getDimensions();
 		} else {
 			if(resV == MinecraftClient.getInstance().currentScreen.height && resH == MinecraftClient.getInstance().currentScreen.width){
 				if (isClientFullscreen) {
@@ -74,8 +73,7 @@ public class LoadingTimer implements ModInitializer {
 					resizeError = true;
 					}
 				}
-				resV = MinecraftClient.getInstance().currentScreen.height;
-				resH = MinecraftClient.getInstance().currentScreen.width;
+				getDimensions();
 			}
 		}
 		// Throw An Exception if the Variable hasGameStarted is out of range
@@ -107,5 +105,10 @@ public class LoadingTimer implements ModInitializer {
 			ToastExecutor.executeToast(finalResultToast, 1);
 		}
 		timerDone = true;
+	}
+
+	private static void getDimensions(){
+		resV = MinecraftClient.getInstance().currentScreen.height;
+		resH = MinecraftClient.getInstance().currentScreen.width;
 	}
 }
