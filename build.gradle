@@ -32,6 +32,8 @@ dependencies {
 
 	modCompileOnly "io.github.ladysnake:vanguard:${vanguard_version}"
 	modCompileOnly "com.thebrokenrail:modupdater:${modupdater_version}+${modupdater_minecraft_version}"
+	    modImplementation "com.oroarmor:oro-config-fabric:${oro_version}"
+ 	include "com.oroarmor:oro-config-fabric:${oro_version}"
 }
 
 processResources {
