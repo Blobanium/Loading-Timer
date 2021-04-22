@@ -1,21 +1,23 @@
 package io.github.blobanium.lt.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
+import com.terraformersmc.modmenu.gui.ModsScreen;
 
 import io.github.prospector.modmenu.api.ModMenuApi;
 
-import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+
 import net.fabricmc.loader.api.FabricLoader;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.client.gui.screen.Screen;
 
 public class ModMenuConfig implements ModMenuApi {
 
-    private static final ConfigScreenFactory<?> CONFIG = FabricLoader.getInstance().isModLoaded("cloth-config2")
+    private static ConfigScreenFactory<?> CONFIG = FabricLoader.getInstance().isModLoaded("cloth-config2")
     ? new LTClothConfig()
     : parent -> null;
     
@@ -27,11 +29,14 @@ public class ModMenuConfig implements ModMenuApi {
 
     private static class LTClothConfig implements ConfigScreenFactory<Screen> {
     
+
         private static String currentValue = "test";
 
         @Override
         public Screen create(Screen parent) {
-            ConfigBuilder builder = ConfigBuilder.create().setParentScreen(parent).setTitle(new TranslatableText("loading-timer.config"));
+            final ConfigBuilder builder = ConfigBuilder.create()
+                .setParentScreen(parent)
+                .setTitle(new TranslatableText("loading-timer.config"));
     
             builder.setSavingRunnable(() -> {
                 // Serialise the config into the config file. This will be called last after all variables are updated.
@@ -47,8 +52,6 @@ public class ModMenuConfig implements ModMenuApi {
                 .setSaveConsumer(newValue -> currentValue = newValue) // Recommended: Called when user save the config
                 .build()); // Builds the option entry for cloth config
         
-                Screen screen = builder.build();
-                MinecraftClient.getInstance().openScreen(screen);
             return builder.build();
         }
     }
