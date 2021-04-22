@@ -1,4 +1,4 @@
-package io.github.blobanium.lt.util.resource;
+package io.github.blobanium.lt.resource;
 
 import io.github.blobanium.lt.LoadingTimer;
 import io.github.blobanium.lt.config.ConfigReader;

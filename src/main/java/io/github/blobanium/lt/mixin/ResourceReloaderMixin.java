@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import io.github.blobanium.lt.config.ConfigReader;
+import io.github.blobanium.lt.resource.ResourceLoadingTimer;
 import io.github.blobanium.lt.util.math.MathUtil;
-import io.github.blobanium.lt.util.resource.ResourceLoadingTimer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
