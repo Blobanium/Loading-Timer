@@ -46,10 +46,10 @@ public class ModMenuConfig implements ModMenuApi {
         
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("category.examplemod.general"));
         
-            general.addEntry(entryBuilder.startStrField(new TranslatableText("option.examplemod.optionA"), currentValue)
-                .setDefaultValue("This is the default value") // Recommended: Used when user click "Reset"
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.insanePrecision)
+                .setDefaultValue(false) // Recommended: Used when user click "Reset"
                 .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> currentValue = newValue) // Recommended: Called when user save the config
+                .setSaveConsumer(newValue -> ConfigReader.insanePrecision = newValue) // Recommended: Called when user save the config
                 .build()); // Builds the option entry for cloth config
         
             return builder.build();
