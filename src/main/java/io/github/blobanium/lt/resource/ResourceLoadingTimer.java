@@ -9,9 +9,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ResourceLoadingTimer {
-    public static long resourceStartingTime;
+    private static long resourceStartingTime;
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
-    public static double resourceResult;
+    private static double resourceResult;
 
     public static void startTimer(){
         if(ConfigReader.insanePrecision){

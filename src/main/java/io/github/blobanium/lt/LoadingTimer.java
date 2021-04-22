@@ -12,17 +12,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class LoadingTimer implements ModInitializer {
-	public static long timeToLoad;
 	public static long startingTime = System.currentTimeMillis();
 	public static long startingTimeNano = System.nanoTime();
 	public static long STARTINGTIME2 = startingTime;
-	public static byte hasGameStarted = 0;
-	public static double loadMemory = 0;
+	private static byte hasGameStarted = 0;
+	private static double loadMemory = 0;
 	private static boolean isClientFullscreen = false;
 	private static boolean isClientFullscreen2 = false;
-	public static double finalResult = 0;
+	private static double finalResult = 0;
 	public static boolean timerDone = false;
-	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+	private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 	static int resV = 0;
 	static int resH = 0;
 	static boolean resizeError = false;
@@ -87,7 +86,7 @@ public class LoadingTimer implements ModInitializer {
 		}
 	}
 
-	public static void lastMessage(){
+	private static void lastMessage(){
 		TimeLogger.loggerMessage(2, finalResult, "");
 		double rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
 		if (rawLoadingTime < 0.05) {

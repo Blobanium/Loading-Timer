@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import io.github.blobanium.lt.config.ConfigReader;
 
 public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
-    public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+    private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
     @Override
     public void onPreLaunch(){
@@ -19,7 +19,7 @@ public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
         ConfigReader.configRegister();
     }
 
-    public static void checkCompat(){
+    private static void checkCompat(){
         if(!FabricLoader.getInstance().isModLoaded("fabric")){
             LOGGER.warn("Fabric API was not detected");
             LOGGER.warn("Translations will not work at all.");

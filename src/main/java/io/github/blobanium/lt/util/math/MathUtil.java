@@ -3,7 +3,7 @@ package io.github.blobanium.lt.util.math;
 import io.github.blobanium.lt.config.ConfigReader;
 
 public class MathUtil {
-    public static int tenMulti = 1000;
+    private static int tenMulti = 1000;
 
     public static double calculateMain(long startingTimeMathUtil) {
         if (ConfigReader.insanePrecision) {

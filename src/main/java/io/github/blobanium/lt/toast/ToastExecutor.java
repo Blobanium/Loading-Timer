@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import io.github.blobanium.lt.config.ConfigReader;
 
 public class ToastExecutor {
-    public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+    private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
     public static void executeToast(double toastTimeValue, int messageToastSelector){
         if(FabricLoader.getInstance().isModLoaded("fabric")){

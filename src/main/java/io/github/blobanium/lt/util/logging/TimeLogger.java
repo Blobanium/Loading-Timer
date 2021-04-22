@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import io.github.blobanium.lt.config.ConfigReader;
 
 public class TimeLogger {
-    public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
+    private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
     public static void loggerMessage(int messageSelector, double variable, String extraText){
         if(messageSelector == 1) {LOGGER.info("Minecraft took " + variable + " seconds to initialize.");}
