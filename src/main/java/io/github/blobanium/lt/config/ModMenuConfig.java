@@ -28,9 +28,6 @@ public class ModMenuConfig implements ModMenuApi {
     }
 
     private static class LTClothConfig implements ConfigScreenFactory<Screen> {
-    
-
-        private static String currentValue = "test";
 
         @Override
         public Screen create(Screen parent) {
