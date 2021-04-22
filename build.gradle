@@ -12,6 +12,7 @@ group = project.maven_group
 repositories { 
 	maven { url 'https://jitpack.io' }
 	maven { url 'https://maven.thebrokenrail.com' }
+	maven { url "https://maven.shedaniel.me/" }
 	maven {
 		name = "Ladysnake Libs"
 		url = "https://dl.bintray.com/ladysnake/libs"
@@ -33,6 +34,11 @@ dependencies {
 	modCompileOnly "io.github.ladysnake:vanguard:${vanguard_version}"
 	// modCompileOnly "com.thebrokenrail:modupdater:${modupdater_version}+${modupdater_minecraft_version}"
 	// ModUpdater has been temporarily disabled mainly as its maven servers are down
+	modApi("me.shedaniel.cloth:cloth-config-fabric:${cloth_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+	modImplementation "com.github.TerraformersMC:ModMenu:1.16.9"
 }
 
 processResources {
