@@ -11,9 +11,9 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 
 import net.fabricmc.loader.api.FabricLoader;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.client.gui.screen.Screen;
+
 
 public class ModMenuConfig implements ModMenuApi {
 
@@ -34,6 +34,7 @@ public class ModMenuConfig implements ModMenuApi {
 
         @Override
         public Screen create(Screen parent) {
+
             final ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
                 .setTitle(new TranslatableText("loading-timer.config"));
@@ -46,12 +47,36 @@ public class ModMenuConfig implements ModMenuApi {
         
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("category.examplemod.general"));
         
-            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.insanePrecision)
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.insanePrecision)
                 .setDefaultValue(false) // Recommended: Used when user click "Reset"
                 .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
                 .setSaveConsumer(newValue -> ConfigReader.insanePrecision = newValue) // Recommended: Called when user save the config
                 .build()); // Builds the option entry for cloth config
         
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.worldLoadTime)
+                .setDefaultValue(false) // Recommended: Used when user click "Reset"
+                .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
+                .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue) // Recommended: Called when user save the config
+                .build()); // Builds the option entry for cloth config
+
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.resourceLoadNotif)
+                .setDefaultValue(false) // Recommended: Used when user click "Reset"
+                .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
+                .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue) // Recommended: Called when user save the config
+                .build()); // Builds the option entry for cloth config
+
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.resourceLoadPercent)
+                .setDefaultValue(false) // Recommended: Used when user click "Reset"
+                .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
+                .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue) // Recommended: Called when user save the config
+                .build()); // Builds the option entry for cloth config
+
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.rawLoadingToast)
+                .setDefaultValue(false) // Recommended: Used when user click "Reset"
+                .setTooltip(new TranslatableText("This option is awesome!")) // Optional: Shown when the user hover over this option
+                .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue) // Recommended: Called when user save the config
+                .build()); // Builds the option entry for cloth config
+
             return builder.build();
         }
     }
