@@ -75,14 +75,9 @@ public class LoadingTimer implements ModInitializer {
 				getDimensions();
 			}
 		}
-		// Throw An Exception if the Variable hasGameStarted is out of range
 		if (!(hasGameStarted >= 1 && hasGameStarted <= 3)) {
-			if(ConfigReader.noException){
-				LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-3)");
-				Thread.dumpStack();
-			} else {
-			throw new IndexOutOfBoundsException("Invalid value for byte hasGameStarted has been given: " + hasGameStarted + " ");
-			}
+			LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-3)");
+			Thread.dumpStack();
 		}
 	}
 

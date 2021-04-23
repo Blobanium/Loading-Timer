@@ -12,7 +12,6 @@ public class ConfigReader {
     public static boolean resourceLoadPercent = false;
     public static boolean insanePrecision = false;
     public static boolean worldLoadTime = false;
-    public static boolean noException = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
@@ -20,7 +19,6 @@ public class ConfigReader {
     	LOGGER.debug("Registering config..");
     	SimpleConfig CONFIG = SimpleConfig.of("LoadingTimer").provider(namespace -> ConfigReader.ltProvider(namespace)).request();
     	final boolean insanePrecisionConfig = CONFIG.getOrDefault("insane_precision", false); 
-    	final boolean noExceptionConfig = CONFIG.getOrDefault("no_exception", false);
     	final boolean worldLoadTimeConfig = CONFIG.getOrDefault("world_loading_timer", false);
     	final boolean resourceLoadPercentConfig = CONFIG.getOrDefault("show_resource_load_percent", false);
     	final boolean resourceLoadNotifConfig = CONFIG.getOrDefault("resource_loading_notification", false);
@@ -30,9 +28,6 @@ public class ConfigReader {
     		LOGGER.debug("Insane Precision is on");
     		LoadingTimer.STARTINGTIME2 = LoadingTimer.startingTimeNano;
     		insanePrecision = true;
-    	}
-    	if(noExceptionConfig){
-    		noException = true;
     	}
     	if(worldLoadTimeConfig){
     		worldLoadTime = true;
@@ -54,10 +49,9 @@ public class ConfigReader {
     	}
     }
 
-    public static String ltProvider(String filename) {
+    private static String ltProvider(String filename) {
     	return "#Loading timer Config File. For more details on what these options do, go to https://github.com/Blobanium/Loading-Timer/wiki/Config-Guide."
     	+ "\ninsane_precision=false"
-    	+ "\nno_exception=false"
     	+ "\nworld_loading_timer=false"
     	+ "\nshow_resource_load_percent=false"
     	+ "\nresource_loading_notification=false"

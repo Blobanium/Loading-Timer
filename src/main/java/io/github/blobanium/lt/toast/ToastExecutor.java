@@ -90,11 +90,8 @@ public class ToastExecutor {
 
     private static void checkIndex(int messageToastSelector){
         if(!(messageToastSelector >= 1 && messageToastSelector <= 3)){
-            if(ConfigReader.noException){
-                LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageToastSelector: " + messageToastSelector + "  (Expected range: 1-2)");
+                LOGGER.fatal("An IndexOutOfBoundsException has occurred, int messageToastSelector: " + messageToastSelector + "  (Expected range: 1-3)");
                 Thread.dumpStack();
-            }
-            throw new IndexOutOfBoundsException("Invalid value for int messageToastSelector has been given: " + messageToastSelector + " ");
         }
     }
 }
