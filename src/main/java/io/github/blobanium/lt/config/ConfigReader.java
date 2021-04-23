@@ -1,11 +1,20 @@
 package io.github.blobanium.lt.config;
 
 import io.github.blobanium.lt.LoadingTimer;
+import net.fabricmc.loader.api.FabricLoader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+import java.nio.file.Files;
+
+
 public class ConfigReader {
+	//variables
+	public static boolean refreshingConfig = false;
+
+	//configs
 	public static boolean insanePrecision = false;
     public static boolean rawLoadingToast = false;
     public static boolean resourceLoadNotifStartupOverride = false;
@@ -58,4 +67,19 @@ public class ConfigReader {
     	+ "\nresource_loading_notif_override=" + resourceLoadNotifStartupOverride
     	+ "\nraw_loading_toast=" + rawLoadingToast;
     }
+
+	public static void refreshConfig(){
+		refreshingConfig = true;
+		try {
+			if(!Files.deleteIfExists(FabricLoader.getInstance().getConfigDir().resolve("LoadingTimer.properties"))){
+				LOGGER.error("Config file not found. Please ensure the path to the config is correct.\n" + FabricLoader.getInstance().getConfigDir().resolve("LoadingTimer.properties"));
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			LOGGER.fatal("Config Refresh Failed due to a IOException, please report this on our issues thread.");
+			e.printStackTrace();
+		}
+		configRegister();
+		refreshingConfig = false;
+	}
 }

@@ -38,6 +38,7 @@ public class ModMenuConfig implements ModMenuApi {
     
             builder.setSavingRunnable(() -> {
                 // Serialise the config into the config file. This will be called last after all variables are updated.
+                ConfigReader.refreshConfig();
             });
         
             ConfigEntryBuilder entryBuilder = builder.entryBuilder();

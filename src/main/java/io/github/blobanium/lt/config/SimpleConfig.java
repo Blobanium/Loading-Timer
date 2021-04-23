@@ -140,7 +140,9 @@ public class SimpleConfig {
         String identifier = "Config '" + request.filename + "'";
 
         if( !request.file.exists() ) {
+            if(!ConfigReader.refreshingConfig){
             LOGGER.info( identifier + " is missing, generating default one..." );
+            }
 
             try {
                 createConfig();
