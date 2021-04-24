@@ -25,6 +25,7 @@ public class LoadingTimer implements ModInitializer {
 	public static int resV = 0;
 	public static int resH = 0;
 	public static boolean resizeError = false;
+    public static boolean advanceLoopControl = true;
 
 	@Override
 	public void onInitialize() {
@@ -34,54 +35,46 @@ public class LoadingTimer implements ModInitializer {
 		loadMemory = finalResult;
 	}
 
-	public static void load() {
-		finalResult = MathUtil.calculateMain(STARTINGTIME2);
-		if (hasGameStarted == 0) {
-			hasGameStarted = 1;
-			if (MinecraftClient.getInstance().options.fullscreen) {
-				isClientFullscreen = true;
-				isClientFullscreen2 = true;
-			}
-			LOGGER.debug("hasGameStarted=1");
-			getDimensions();
-		} else {
-			if(resV == MinecraftClient.getInstance().currentScreen.height && resH == MinecraftClient.getInstance().currentScreen.width){
-				if (isClientFullscreen) {
-					if(hasGameStarted == 1){
-						hasGameStarted = 2;
-						LOGGER.debug("hasGameStarted=2");
-					} else {
-						if(hasGameStarted == 2){
-							hasGameStarted = 3;
-							LOGGER.debug("hasGameStarted=3");
-							lastMessage();
-						}
-					}
-				} else {
-					if (hasGameStarted == 1) {
-						hasGameStarted = 3;
-						lastMessage();
-					}
-				}
-			} else {
-				if(!resizeError){
-					if(isClientFullscreen2){
-						isClientFullscreen2 = false;
-					} else {
-					LOGGER.warn("Please refrain from changing resolutions during startup, as it may cause issues.");
-					resizeError = true;
-					}
-				}
-				getDimensions();
-			}
-		}
-		if (!(hasGameStarted >= 1 && hasGameStarted <= 3)) {
-			LOGGER.fatal("An IndexOutOfBoundsException has occurred, byte hasGameStarted: " + hasGameStarted + "  (Expected range: 1-3)");
-			Thread.dumpStack();
-		}
-	}
+    public static void load(){
+    	finalResult = MathUtil.calculateMain(STARTINGTIME2);
+        advanceLoopControl = true;
+    
+    	if (hasGameStarted == 0 && advanceLoopControl) {
+    		if (MinecraftClient.getInstance().options.fullscreen) {
+    			isClientFullscreen = true;
+    			isClientFullscreen2 = true;
+    		}
+    		getDimensions();
+            advanceloop((byte) 1);
+    	}
+    
+    	if(resV == MinecraftClient.getInstance().currentScreen.height && resH == MinecraftClient.getInstance().currentScreen.width){
+    		if(hasGameStarted == 1 && advanceLoopControl){
+    			if(isClientFullscreen){
+                    advanceloop((byte) 2);
+    			} else {
+                    loopEnd();
+    			}
+    		}
+    
+    		if(hasGameStarted == 2 && advanceLoopControl){
+                loopEnd();
+    		}
+    
+    	} else {
+    		if(!resizeError){
+    			if(isClientFullscreen2){
+    				isClientFullscreen2 = false;
+    			} else {
+    			LOGGER.warn("Please refrain from changing resolutions during startup, as it may cause issues.");
+    			resizeError = true;
+    			}
+    		}
+    		getDimensions();
+    	}
+    }
 
-	public static void lastMessage(){
+    public static void lastMessage(){
 		TimeLogger.loggerMessage(2, finalResult, "");
 		double rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
 		if (rawLoadingTime < 2.3) {
@@ -104,4 +97,15 @@ public class LoadingTimer implements ModInitializer {
 		resV = MinecraftClient.getInstance().currentScreen.height;
 		resH = MinecraftClient.getInstance().currentScreen.width;
 	}
+
+	public static void advanceloop(byte newHasGameStarted){
+        hasGameStarted = newHasGameStarted;
+        advanceLoopControl = false;
+    }
+
+    public static void loopEnd(){
+        hasGameStarted = 3;
+        lastMessage();
+        advanceLoopControl = false;
+    }
 }
