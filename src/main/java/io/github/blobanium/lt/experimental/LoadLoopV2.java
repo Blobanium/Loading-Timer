@@ -5,38 +5,32 @@ import io.github.blobanium.lt.util.math.MathUtil;
 import net.minecraft.client.MinecraftClient;
 
 public class LoadLoopV2 {
-    public static boolean advanceLoop = true;
+    public static boolean advanceLoopControl = true;
 
     public static void load2(){
     	LoadingTimer.finalResult = MathUtil.calculateMain(LoadingTimer.STARTINGTIME2);
-        advanceLoop = true;
+        advanceLoopControl = true;
 
-    	if (LoadingTimer.hasGameStarted == 0 && advanceLoop) {
-    		LoadingTimer.hasGameStarted = 1;
+    	if (LoadingTimer.hasGameStarted == 0 && advanceLoopControl) {
     		if (MinecraftClient.getInstance().options.fullscreen) {
     			LoadingTimer.isClientFullscreen = true;
     			LoadingTimer.isClientFullscreen2 = true;
     		}
     		LoadingTimer.getDimensions();
-            advanceLoop = false;
+            advanceloop((byte) 1);
     	}
     
     	if(LoadingTimer.resV == MinecraftClient.getInstance().currentScreen.height && LoadingTimer.resH == MinecraftClient.getInstance().currentScreen.width){
-    		if(LoadingTimer.hasGameStarted == 1 && advanceLoop){
+    		if(LoadingTimer.hasGameStarted == 1 && advanceLoopControl){
     			if(LoadingTimer.isClientFullscreen){
-    				LoadingTimer.hasGameStarted = 2;
-                    advanceLoop = false;
+                    advanceloop((byte) 2);
     			} else {
-    				LoadingTimer.hasGameStarted = 3;
-    				LoadingTimer.lastMessage();
-                    advanceLoop = false;
+                    loopEnd();
     			}
     		}
     
-    		if(LoadingTimer.hasGameStarted == 2 && advanceLoop){
-    			LoadingTimer.hasGameStarted = 3;
-    			LoadingTimer.lastMessage();
-                advanceLoop = false;
+    		if(LoadingTimer.hasGameStarted == 2 && advanceLoopControl){
+                loopEnd();
     		}
     
     	} else {
@@ -50,5 +44,16 @@ public class LoadLoopV2 {
     		}
     		LoadingTimer.getDimensions();
     	}
+    }
+
+    private static void loopEnd(){
+        LoadingTimer.hasGameStarted = 3;
+        LoadingTimer.lastMessage();
+        advanceLoopControl = false;
+    }
+
+    private static void advanceloop(byte newHasGameStarted){
+        LoadingTimer.hasGameStarted = newHasGameStarted;
+        advanceLoopControl = false;
     }
 }
