@@ -45,40 +45,40 @@ public class ModMenuConfig implements ModMenuApi {
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("category.examplemod.general"));
         
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.insane_precision"), ConfigReader.insanePrecision)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(new TranslatableText("loading-timer.config.insane_precision.description")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> ConfigReader.insanePrecision = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("loading-timer.config.insane_precision.description"))
+                .setSaveConsumer(newValue -> ConfigReader.insanePrecision = newValue)
+                .build());
         
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.world_load_time"), ConfigReader.worldLoadTime)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(new TranslatableText("loading-timer.config.world_load_time.description")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("loading-timer.config.world_load_time.description"))
+                .setSaveConsumer(newValue -> ConfigReader.worldLoadTime = newValue)
+                .build());
 
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.resource_load_notif"), ConfigReader.resourceLoadNotif)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(new TranslatableText("loading-timer.config.resource_load_notif.description")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> ConfigReader.resourceLoadNotif = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("loading-timer.config.resource_load_notif.description"))
+                .setSaveConsumer(newValue -> ConfigReader.resourceLoadNotif = newValue)
+                .build());
 
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.resource_load_notif_override"), ConfigReader.resourceLoadNotifStartupOverride)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(new TranslatableText("loading-timer.config.resource_load_notif_override.description")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> ConfigReader.resourceLoadNotifStartupOverride = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("loading-timer.config.resource_load_notif_override.description"))
+                .setSaveConsumer(newValue -> ConfigReader.resourceLoadNotifStartupOverride = newValue)
+                .build());
 
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.resource_load_percent"), ConfigReader.resourceLoadPercent)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(new TranslatableText("loading-timer.config.resource_load_percent.description")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> ConfigReader.resourceLoadPercent = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("loading-timer.config.resource_load_percent.description"))
+                .setSaveConsumer(newValue -> ConfigReader.resourceLoadPercent = newValue)
+                .build());
 
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("loading-timer.config.raw_loading_toast"), ConfigReader.rawLoadingToast)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(new TranslatableText("loading-timer.config.raw_loading_toast.description")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> ConfigReader.rawLoadingToast = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("loading-timer.config.raw_loading_toast.description"))
+                .setSaveConsumer(newValue -> ConfigReader.rawLoadingToast = newValue)
+                .build());
 
             return builder.build();
         }
