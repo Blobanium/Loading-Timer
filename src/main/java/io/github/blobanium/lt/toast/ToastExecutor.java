@@ -10,8 +10,6 @@ import net.minecraft.text.TranslatableText;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import io.github.blobanium.lt.config.ConfigReader;
-
 public class ToastExecutor {
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 

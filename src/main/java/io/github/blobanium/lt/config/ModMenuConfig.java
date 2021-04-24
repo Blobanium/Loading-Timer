@@ -1,7 +1,6 @@
 package io.github.blobanium.lt.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
-import com.terraformersmc.modmenu.gui.ModsScreen;
 
 import io.github.prospector.modmenu.api.ModMenuApi;
 

@@ -3,8 +3,6 @@ package io.github.blobanium.lt.util.logging;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import io.github.blobanium.lt.config.ConfigReader;
-
 public class TimeLogger {
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
