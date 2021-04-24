@@ -84,8 +84,8 @@ public class LoadingTimer implements ModInitializer {
 	private static void lastMessage(){
 		TimeLogger.loggerMessage(2, finalResult, "");
 		double rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
-		if (rawLoadingTime < 0.05) {
-			TimeLogger.loggerMessage(3, rawLoadingTime, ", quite insane isn't it?");
+		if (rawLoadingTime < 2.3) {
+			TimeLogger.loggerMessage(3, rawLoadingTime, ", your insane.");
 		} else {
 			TimeLogger.loggerMessage(3, rawLoadingTime, "");
 		}
