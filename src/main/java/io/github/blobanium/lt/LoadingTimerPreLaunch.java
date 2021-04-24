@@ -20,9 +20,8 @@ public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
     }
 
     private static void checkCompat(){
-        if(!FabricLoader.getInstance().isModLoaded("fabric")){
-            LOGGER.warn("Fabric API was not detected");
-            LOGGER.warn("Translations will not work at all.");
+        if(!FabricLoader.getInstance().isModLoaded("cloth-config2")){
+            
         }
     }
 }
