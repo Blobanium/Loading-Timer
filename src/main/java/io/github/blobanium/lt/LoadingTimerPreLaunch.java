@@ -21,7 +21,11 @@ public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
 
     private static void checkCompat(){
         if(!FabricLoader.getInstance().isModLoaded("cloth-config2")){
-            
+            if(FabricLoader.getInstance().isModLoaded("modmenu")){
+                LOGGER.warn("Cloth Config Was Not Detected!!\nBecause you have modmenu, The config menu (in the mods section for this mod) for this mod will be inaccessible!!");
+            } else {
+                LOGGER.warn("Cloth Config Was Not Detected!!\nBecause you don't have modmenu, this shouldn't be a problem, but its highly recommended that you install it.");
+            }
         }
     }
 }
