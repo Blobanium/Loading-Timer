@@ -41,6 +41,9 @@
   "requires": {
     "fabric": "*"
   },
+  "recommends":{
+    "cloth-config2": "*"
+  },
   "custom": {
     "vanguard": {
       "curse-project-id": "450817"
