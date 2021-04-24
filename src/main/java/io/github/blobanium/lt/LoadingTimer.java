@@ -2,8 +2,9 @@ package io.github.blobanium.lt;
 
 import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.toast.ToastExecutor;
-import io.github.blobanium.lt.util.math.MathUtil;
 import io.github.blobanium.lt.util.logging.TimeLogger;
+import io.github.blobanium.lt.util.math.MathUtil;
+
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.client.MinecraftClient;
@@ -36,8 +37,7 @@ public class LoadingTimer implements ModInitializer {
 	}
 
     public static void load(){
-    	finalResult = MathUtil.calculateMain(STARTINGTIME2);
-        advanceLoopControl = true;
+		loopStart();
     
     	if (hasGameStarted == 0 && advanceLoopControl) {
     		if (MinecraftClient.getInstance().options.fullscreen) {
@@ -93,19 +93,24 @@ public class LoadingTimer implements ModInitializer {
 		timerDone = true;
 	}
 
-	public static void getDimensions(){
+	private static void getDimensions(){
 		resV = MinecraftClient.getInstance().currentScreen.height;
 		resH = MinecraftClient.getInstance().currentScreen.width;
 	}
 
-	public static void advanceloop(byte newHasGameStarted){
+	private static void advanceloop(byte newHasGameStarted){
         hasGameStarted = newHasGameStarted;
         advanceLoopControl = false;
     }
 
-    public static void loopEnd(){
+    private static void loopEnd(){
         hasGameStarted = 3;
         lastMessage();
         advanceLoopControl = false;
     }
+
+	private static void loopStart(){
+		finalResult = MathUtil.calculateMain(STARTINGTIME2);
+        advanceLoopControl = true;
+	}
 }
