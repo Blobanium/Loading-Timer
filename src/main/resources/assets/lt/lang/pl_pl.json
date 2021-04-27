@@ -2,4 +2,19 @@
     "loading-timer.title": "Licznik czasu ładowania",
     "loading-timer.title_ee": "Liczkin czasu łdaowania",
     "loading-timer.message_text": "Załadowanie Minecrafta zajęło %d sekund"
+    "loading-timer.world_message_text": "Potrzeba było %d sekund, aby wczytać/wygenerować ten świat",
+    "loading-timer.resource_loading_text": "Potrzeba było około %d sekund, aby załadować paczki zasobów",
+    "loading-timer.config": "Menu konfiguracji Loading Timer",
+    "loading-timer.config.insane_precision": "Niemożliwa dokładność",
+    "loading-timer.config.insane_precision.description": "Nowy wymiar precyzji",
+    "loading-timer.config.world_load_time": "Licznik czasu ładowania świata",
+    "loading-timer.config.world_load_time.description": "Mierzy jak długo zajęło załadowanie świata",
+    "loading-timer.config.resource_load_notif": "Licznik czasu ładowania zasobów",
+    "loading-timer.config.resource_load_notif.description": "Mierzy jak długo zajęło załadowanie paczek zasobów",
+    "loading-timer.config.resource_load_notif_override": "Resource Loading Timer Startup Override",
+    "loading-timer.config.resource_load_notif_override.description": "Domyślnie licznik czasu ładowania zasobów na po załadowaniu Minecrafta nie jest pokazywany \n,aby zapobiec spamowania powiadomieniami.\n\nAby to ustawienie działało 'Licznik czasu ładowania zasobów' musi być włączony",
+    "loading-timer.config.resource_load_percent": "Procent ładowania zasobów",
+    "loading-timer.config.resource_load_percent.description": "Wypisuje jak długo trwało ładowanie paczek zasobów.\nPodobnie, jak Minecraft pokazuje ile procent świata zostało załadowane w trybie jednoosobowym",
+    "loading-timer.config.raw_loading_toast": "Pokazuj 'surowy' czas na powiadomieniu startowym",
+    "loading-timer.config.raw_loading_toast.description": "Zastąp 'całkowite' wartości pokazywane na starcie wartościami 'surowymi'"
 }
