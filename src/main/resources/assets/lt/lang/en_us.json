@@ -12,7 +12,7 @@
     "loading-timer.config.resource_load_notif": "Resource Loading Timer",
     "loading-timer.config.resource_load_notif.description": "Measures how long it takes to load into resource packs",
     "loading-timer.config.resource_load_notif_override": "Resource Loading Timer Startup Override",
-    "loading-timer.config.resource_load_notif_override.description": "Usually at startup, the resource loading time doesn't \nshow at startup to prevent toast spam.\n\nThis won't work unless 'Resource Loading Timer' is on",
+    "loading-timer.config.resource_load_notif_override.description": "Usually at startup, the resource loading time doesn't \nshow up at startup to prevent toast spam.\n\nThis setting won't work unless 'Resource Loading Timer' is on",
     "loading-timer.config.resource_load_percent": "Resource Loading Percent",
     "loading-timer.config.resource_load_percent.description": "Prints out how much of the resource pack has been loaded.\nJust like how Minecraft prints out how much of the world has been generated in singleplayer",
     "loading-timer.config.raw_loading_toast": "Show 'Raw' Time On Startup Toast",
