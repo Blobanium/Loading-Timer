@@ -29,8 +29,8 @@ public class ResourceReloaderMixin {
         return ci.getReturnValueF();
     }
 
-    @Inject(at = @At("TAIL"), method = "isApplyStageComplete")
-    private boolean isApplyStageComplete(CallbackInfoReturnable<Boolean> ci){
+    @Inject(at = @At("TAIL"), method = "isComplete")
+    private boolean isComplete(CallbackInfoReturnable<Boolean> ci){
         if(ci.getReturnValueZ()){
             ResourceLoadingTimer.stopTimer();
         }

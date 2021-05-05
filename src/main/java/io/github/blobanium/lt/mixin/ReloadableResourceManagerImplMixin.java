@@ -11,8 +11,8 @@ import io.github.blobanium.lt.resource.ResourceLoadingTimer;
 
 @Mixin(ReloadableResourceManagerImpl.class)
 public class ReloadableResourceManagerImplMixin {
-    @Inject(at = @At("HEAD"), method = "beginMonitoredReload")
-    private void beginMonitoredReload(CallbackInfoReturnable<ResourceReload> ci){
+    @Inject(at = @At("HEAD"), method = "reload")
+    private void reload(CallbackInfoReturnable<ResourceReload> ci){
         ResourceLoadingTimer.startTimer();
     }
 }
