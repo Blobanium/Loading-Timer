@@ -1,0 +1,20 @@
+{
+    "loading-timer.title": "Loading Timer",
+    "loading-timer.title_ee": "Loading Timer",
+    "loading-timer.message_text": "Minecraft запустился за %d секунд",
+    "loading-timer.world_message_text": "Загрузка/генерация мира заняла %d секунд",
+    "loading-timer.resource_loading_text": "Загрузка пакетов ресурсов заняла %d секунд",
+    "loading-timer.config": "Настройки Loading Timer",
+    "loading-timer.config.insane_precision": "Безумная точность",
+    "loading-timer.config.insane_precision.description": "Выводит точность на совершенно новый уровень",
+    "loading-timer.config.world_load_time": "Таймер загрузки мира",
+    "loading-timer.config.world_load_time.description": "Измеряет, сколько времени уходит на загрузку мира",
+    "loading-timer.config.resource_load_notif": "Таймер загрузки ресурсов",
+    "loading-timer.config.resource_load_notif.description": "Измеряет, сколько времени уходит на загрузку пакетов ресурсов",
+    "loading-timer.config.resource_load_notif_override": "Переопределение запуска таймера загрузки ресурсов",
+    "loading-timer.config.resource_load_notif_override.description": "Обычно время загрузки ресурсов не отображается при запуске,\nчтобы предотвратить спам уведомлений. Это не будет работать, если не включён таймер загрузки ресурсов.",
+    "loading-timer.config.resource_load_percent": "Процент загрузки ресурсов",
+    "loading-timer.config.resource_load_percent.description": "Показывает процесс загрузки ресурсов.\nТочно так же, как Minecraft показывает процесс генерации мира.",
+    "loading-timer.config.raw_loading_toast": "Показывать 'сырое' время при запуске.",
+    "loading-timer.config.raw_loading_toast.description": "Заменяет 'общие' значения, показанные при запуске, на 'сырые'."
+}
