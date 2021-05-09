@@ -40,7 +40,8 @@
     "fabric": "*"
   },
   "recommends":{
-    "cloth-config2": "*"
+    "cloth-config2": "*",
+    "minecraft": ["1.16.*"]
   },
   "custom": {
     "vanguard": {
