@@ -1,0 +1,20 @@
+{
+    "loading-timer.title": "Loading Timer",
+    "loading-timer.title_ee": "Loading Timer",
+    "loading-timer.message_text": "Minecraftの読込に %d 秒かかりました",
+    "loading-timer.world_message_text": "ワールドの生成/読込に %d 秒かかりました",
+    "loading-timer.resource_loading_text": "リソースパックの読込に約 %d 秒かかりました",
+    "loading-timer.config": "Loading Timer Config Menu",
+    "loading-timer.config.insane_precision": "高精度タイマー",
+    "loading-timer.config.insane_precision.description": "計測に高精度タイマーを使用します",
+    "loading-timer.config.world_load_time": "ワールド読込タイマー",
+    "loading-timer.config.world_load_time.description": "ワールドのロードにかかる時間を計測します",
+    "loading-timer.config.resource_load_notif": "リソース読込タイマー",
+    "loading-timer.config.resource_load_notif.description": "リソースパックの読込にかかる時間を計測します",
+    "loading-timer.config.resource_load_notif_override": "リソース読込タイマーの起動時オーバーライド",
+    "loading-timer.config.resource_load_notif_override.description": "通常起動時には、トーストのspamを防ぐためにリソース読込タイマーは表示されません。\n\nこの設定はリソース読込タイマーがオンになっていないと機能しません。",
+    "loading-timer.config.resource_load_percent": "リソース読込パーセント",
+    "loading-timer.config.resource_load_percent.description": "リソースパック読込の進捗を出力します。\nシングルプレイ時にワールド生成の進捗が出力されるのと同じです。",
+    "loading-timer.config.raw_loading_toast": "起動時に実測のタイムを表示する",
+    "loading-timer.config.raw_loading_toast.description": "起動時に表示される合計時間の代わりに実測時間を表示します"
+}
