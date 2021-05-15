@@ -13,6 +13,8 @@ import io.github.blobanium.lt.LoadingTimer;
 public class MinecraftClientMixin {
     @Inject(at = @At("HEAD"), method = "onResolutionChanged")
     private void onResolutionChanged(CallbackInfo info){
+        if(LoadingTimer.isLoopActive){
         LoadingTimer.hasResolutionChanged = true;
+        }
     }
 }
