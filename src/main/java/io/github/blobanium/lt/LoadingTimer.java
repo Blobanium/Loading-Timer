@@ -23,10 +23,9 @@ public class LoadingTimer implements ModInitializer {
 	public static double finalResult = 0;
 	public static boolean timerDone = false;
 	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
-	public static int resV = 0;
-	public static int resH = 0;
 	public static boolean resizeError = false;
     public static boolean advanceLoopControl = true;
+	public static boolean hasResolutionChanged = false;
 
 	@Override
 	public void onInitialize() {
@@ -44,11 +43,10 @@ public class LoadingTimer implements ModInitializer {
     			isClientFullscreen = true;
     			isClientFullscreen2 = true;
     		}
-    		getDimensions();
             advanceloop((byte) 1);
     	}
     
-    	if(resV == MinecraftClient.getInstance().currentScreen.height && resH == MinecraftClient.getInstance().currentScreen.width){
+    	if(!hasResolutionChanged){
     		if(hasGameStarted == 1 && advanceLoopControl){
     			if(isClientFullscreen){
                     advanceloop((byte) 2);
@@ -70,7 +68,7 @@ public class LoadingTimer implements ModInitializer {
     			resizeError = true;
     			}
     		}
-    		getDimensions();
+    		hasResolutionChanged = false;
     	}
     }
 
@@ -91,11 +89,6 @@ public class LoadingTimer implements ModInitializer {
 			ToastExecutor.executeToast(finalResultToast, 1);
 		}
 		timerDone = true;
-	}
-
-	private static void getDimensions(){
-		resV = MinecraftClient.getInstance().currentScreen.height;
-		resH = MinecraftClient.getInstance().currentScreen.width;
 	}
 
 	private static void advanceloop(byte newHasGameStarted){
