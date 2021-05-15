@@ -26,6 +26,7 @@ public class LoadingTimer implements ModInitializer {
 	public static boolean resizeError = false;
     public static boolean advanceLoopControl = true;
 	public static boolean hasResolutionChanged = false;
+	public static boolean isLoopActive = false;
 
 	@Override
 	public void onInitialize() {
@@ -43,6 +44,7 @@ public class LoadingTimer implements ModInitializer {
     			isClientFullscreen = true;
     			isClientFullscreen2 = true;
     		}
+			isLoopActive=true;
             advanceloop((byte) 1);
     	}
     
@@ -99,6 +101,7 @@ public class LoadingTimer implements ModInitializer {
     private static void loopEnd(){
         hasGameStarted = 3;
         lastMessage();
+		isLoopActive = false;
         advanceLoopControl = false;
     }
 
