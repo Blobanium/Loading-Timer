@@ -9,7 +9,8 @@
     "LoadModMixin",
     "WorldGenerationProgressLoggerMixin",
     "ResourceReloaderMixin",
-    "ReloadableResourceManagerImplMixin"
+    "ReloadableResourceManagerImplMixin",
+    "MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
