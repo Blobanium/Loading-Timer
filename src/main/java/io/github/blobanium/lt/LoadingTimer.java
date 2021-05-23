@@ -4,11 +4,8 @@ import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.util.math.MathUtil;
-
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.client.MinecraftClient;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

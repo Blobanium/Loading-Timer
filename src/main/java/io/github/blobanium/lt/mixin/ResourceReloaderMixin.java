@@ -1,18 +1,15 @@
 package io.github.blobanium.lt.mixin;
 
+import io.github.blobanium.lt.config.ConfigReader;
+import io.github.blobanium.lt.resource.ResourceLoadingTimer;
+import io.github.blobanium.lt.util.math.MathUtil;
 import net.minecraft.resource.ResourceReloader;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import io.github.blobanium.lt.config.ConfigReader;
-import io.github.blobanium.lt.resource.ResourceLoadingTimer;
-import io.github.blobanium.lt.util.math.MathUtil;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Mixin(ResourceReloader.class)
 public class ResourceReloaderMixin {

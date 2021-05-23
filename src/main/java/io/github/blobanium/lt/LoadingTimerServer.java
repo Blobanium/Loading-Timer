@@ -1,7 +1,6 @@
 package io.github.blobanium.lt;
 
 import net.fabricmc.api.DedicatedServerModInitializer;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
