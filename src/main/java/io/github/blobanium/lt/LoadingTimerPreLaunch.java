@@ -1,12 +1,10 @@
 package io.github.blobanium.lt;
 
+import io.github.blobanium.lt.config.ConfigReader;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import io.github.blobanium.lt.config.ConfigReader;
 
 public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");

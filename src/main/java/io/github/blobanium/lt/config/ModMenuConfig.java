@@ -1,17 +1,13 @@
 package io.github.blobanium.lt.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
-
 import io.github.prospector.modmenu.api.ModMenuApi;
-
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
-
 import net.fabricmc.loader.api.FabricLoader;
-
-import net.minecraft.text.TranslatableText;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.text.TranslatableText;
 
 
 public class ModMenuConfig implements ModMenuApi {

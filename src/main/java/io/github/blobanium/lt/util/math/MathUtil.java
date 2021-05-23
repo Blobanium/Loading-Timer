@@ -14,11 +14,11 @@ public class MathUtil {
             double finalResultMath = tTLDeductor + (beforeFinalResult / tenMulti);
             return finalResultMath;
         } else {
-        long timeToLoad = System.currentTimeMillis() - startingTimeMathUtil;
-		long tTLDeductor = timeToLoad/tenMulti;
-		double beforeFinalResult = (timeToLoad - (tTLDeductor * tenMulti));
-		double finalResultMath = tTLDeductor + (beforeFinalResult / tenMulti);
-        return finalResultMath;
+            long timeToLoad = System.currentTimeMillis() - startingTimeMathUtil;
+            long tTLDeductor = timeToLoad / tenMulti;
+            double beforeFinalResult = (timeToLoad - (tTLDeductor * tenMulti));
+            double finalResultMath = tTLDeductor + (beforeFinalResult / tenMulti);
+            return finalResultMath;
         }
     }
 

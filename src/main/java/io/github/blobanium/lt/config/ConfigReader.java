@@ -2,7 +2,6 @@ package io.github.blobanium.lt.config;
 
 import io.github.blobanium.lt.LoadingTimer;
 import net.fabricmc.loader.api.FabricLoader;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
