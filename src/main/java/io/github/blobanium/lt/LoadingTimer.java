@@ -27,6 +27,7 @@ public class LoadingTimer implements ModInitializer {
     public static boolean advanceLoopControl = true;
 	public static boolean hasResolutionChanged = false;
 	public static boolean isLoopActive = false;
+	private static double finalResultToast;
 
 	@Override
 	public void onInitialize() {
@@ -83,13 +84,11 @@ public class LoadingTimer implements ModInitializer {
 			TimeLogger.loggerMessage(3, rawLoadingTime, "");
 		}
 		if(ConfigReader.rawLoadingToast){
-			double finalResultToast = MathUtil.roundValue(rawLoadingTime);
-			// Send A System toast Once its done loading
-			ToastExecutor.executeToast(finalResultToast, 1);
+			finalResultToast = MathUtil.roundValue(rawLoadingTime);
 		} else {
-			double finalResultToast = MathUtil.roundValue(finalResult);
-			ToastExecutor.executeToast(finalResultToast, 1);
+			finalResultToast = MathUtil.roundValue(finalResult);
 		}
+		ToastExecutor.executeToast("loading-timer.message_text", finalResultToast);
 		timerDone = true;
 	}
 

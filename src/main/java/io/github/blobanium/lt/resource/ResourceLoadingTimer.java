@@ -26,7 +26,7 @@ public class ResourceLoadingTimer {
         LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
         if(ConfigReader.resourceLoadNotif){
             if(LoadingTimer.timerDone || ConfigReader.resourceLoadNotifStartupOverride){
-                ToastExecutor.executeToast(resourceResult, 3);
+                ToastExecutor.executeToast("loading-timer.resource_loading_text", resourceResult);
             }
         }
     }

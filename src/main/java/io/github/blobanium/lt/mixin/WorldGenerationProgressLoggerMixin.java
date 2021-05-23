@@ -45,7 +45,7 @@ public class WorldGenerationProgressLoggerMixin {
             LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
         }
         if(ConfigReader.worldLoadTime){
-            ToastExecutor.executeToast(worldTimeRounded, 2);
+            ToastExecutor.executeToast("loading-timer.world_message_text", worldTimeRounded);
         }
     }
 }
