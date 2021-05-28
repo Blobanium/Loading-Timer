@@ -1,5 +1,6 @@
 package io.github.blobanium.lt.mixin;
 
+import io.github.blobanium.lt.LoadingTimer;
 import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.resource.ResourceLoadingTimer;
 import io.github.blobanium.lt.util.math.MathUtil;
@@ -32,6 +33,7 @@ public class ResourceReloaderMixin {
     private boolean isApplyStageComplete(CallbackInfoReturnable<Boolean> ci){
         if(ci.getReturnValueZ()){
             ResourceLoadingTimer.stopTimer();
+            LoadingTimer.resourcesLoaded = true;
         }
         return ci.getReturnValueZ();
     }

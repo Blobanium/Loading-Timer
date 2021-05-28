@@ -25,6 +25,7 @@ public class LoadingTimer implements ModInitializer {
 	public static boolean hasResolutionChanged = false;
 	public static boolean isLoopActive = false;
 	private static double finalResultToast;
+	public static boolean resourcesLoaded = false;
 
 	@Override
 	public void onInitialize() {
@@ -36,40 +37,6 @@ public class LoadingTimer implements ModInitializer {
 
     public static void load(){
 		loopStart();
-    
-    	if (hasGameStarted == 0 && advanceLoopControl) {
-    		if (MinecraftClient.getInstance().options.fullscreen) {
-    			isClientFullscreen = true;
-    			isClientFullscreen2 = true;
-    		}
-			isLoopActive=true;
-            advanceloop((byte) 1);
-    	}
-    
-    	if(!hasResolutionChanged){
-    		if(hasGameStarted == 1 && advanceLoopControl){
-    			if(isClientFullscreen){
-                    advanceloop((byte) 2);
-    			} else {
-                    loopEnd();
-    			}
-    		}
-    
-    		if(hasGameStarted == 2 && advanceLoopControl){
-                loopEnd();
-    		}
-    
-    	} else {
-    		if(!resizeError){
-    			if(isClientFullscreen2){
-    				isClientFullscreen2 = false;
-    			} else {
-    			LOGGER.warn("Please refrain from changing resolutions during startup, as it may cause issues.");
-    			resizeError = true;
-    			}
-    		}
-    		hasResolutionChanged = false;
-    	}
     }
 
     public static void lastMessage(){

@@ -17,5 +17,8 @@ public class LoadModMixin {
 	private void init(CallbackInfo info) {
 		LOGGER.debug("TitleScreen#init called, calling LoadingTimer.load");
 		LoadingTimer.load();
+		if (LoadingTimer.resourcesLoaded) {
+			LoadingTimer.lastMessage();
+		}
 	}
 }
