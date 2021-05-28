@@ -8,7 +8,7 @@
   "client": [
     "LoadModMixin",
     "WorldGenerationProgressLoggerMixin",
-    "ResourceReloaderMixin",
+    "SimpleResourceReloadMixin",
     "ReloadableResourceManagerImplMixin",
     "MinecraftClientMixin"
   ],

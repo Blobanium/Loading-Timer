@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mixin(SimpleResourceReload.class)
-public class ResourceReloaderMixin {
+public class SimpleResourceReloadMixin {
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
     private float lastReading = 0;
 
