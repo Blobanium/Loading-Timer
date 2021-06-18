@@ -1,5 +1,6 @@
 package io.github.blobanium.lt.mixin;
 
+import io.github.blobanium.lt.LoadingTimer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -33,6 +34,7 @@ public class SimpleResourceReloadMixin {
     private boolean isComplete(CallbackInfoReturnable<Boolean> ci){
         if(ci.getReturnValueZ()){
             ResourceLoadingTimer.stopTimer();
+            LoadingTimer.resourcesLoaded = true;
         }
         return ci.getReturnValueZ();
     }

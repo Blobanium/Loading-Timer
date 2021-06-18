@@ -1,5 +1,6 @@
 package io.github.blobanium.lt.mixin;
 
+import io.github.blobanium.lt.LoadingTimer;
 import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
@@ -42,7 +43,7 @@ public class WorldGenerationProgressLoggerMixin {
             long worldTimeRoundMillis = Double.valueOf(MathUtil.roundValue(worldTime * 1000)).longValue();
             LOGGER.info("Time elapsed: " + worldTimeRoundMillis + " ms");
         }
-        if(ConfigReader.worldLoadTime){
+        if(ConfigReader.worldLoadTime) {
             ToastExecutor.executeToast("loading-timer.world_message_text", worldTimeRounded);
         }
     }
