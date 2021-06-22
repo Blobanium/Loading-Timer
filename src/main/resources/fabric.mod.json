@@ -17,7 +17,7 @@
   "license": "MIT",
   "icon": "assets/lt/icon.png",
 
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "main": [
       "io.github.blobanium.lt.LoadingTimer"
