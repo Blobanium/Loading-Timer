@@ -17,8 +17,6 @@ public class LoadingTimer implements ModInitializer {
 	public static boolean timerDone = false;
 	public static final Logger LOGGER = LogManager.getLogger("Loading Timer");
     public static boolean advanceLoopControl = true;
-	public static boolean hasResolutionChanged = false;
-	public static boolean isLoopActive = false;
 	private static double finalResultToast;
 	public static boolean resourcesLoaded = false;
 
