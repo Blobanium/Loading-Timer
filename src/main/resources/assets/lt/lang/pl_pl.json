@@ -1,6 +1,6 @@
 {
     "loading-timer.title": "Licznik czasu ładowania",
-    "loading-timer.title_ee": "Liczkin czasu łdaowania",
+    "loading-timer.easteregg.title": "Liczkin czasu łdaowania",
     "loading-timer.message_text": "Załadowanie Minecrafta zajęło %d sekund",
     "loading-timer.world_message_text": "Potrzeba było %d sekund, aby wczytać/wygenerować ten świat",
     "loading-timer.resource_loading_text": "Potrzeba było około %d sekund, aby załadować paczki zasobów",

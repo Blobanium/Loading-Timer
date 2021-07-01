@@ -1,6 +1,5 @@
 {
     "loading-timer.title": "Loading Timer",
-    "loading-timer.title_ee": "Laoding Timer",
     "loading-timer.message_text": "Minecraft took %d seconds to load",
     "loading-timer.world_message_text": "It took %d seconds to load into/generate this world",
     "loading-timer.resource_loading_text": "It took approximately %d seconds to load the resource pack(s)",
@@ -16,5 +15,7 @@
     "loading-timer.config.resource_load_percent": "Resource Loading Percent",
     "loading-timer.config.resource_load_percent.description": "Prints out how much of the resource pack has been loaded.\nJust like how Minecraft prints out how much of the world has been generated in singleplayer",
     "loading-timer.config.raw_loading_toast": "Show 'Raw' Time On Startup Toast",
-    "loading-timer.config.raw_loading_toast.description": "Replaces the 'total' values shown at startup with the 'raw' values"
+    "loading-timer.config.raw_loading_toast.description": "Replaces the 'total' values shown at startup with the 'raw' values",
+    "loading-timer.easteregg.title": "Laoding Timer",
+    "loading-timer.easteregg.insane": "Your Insane."
 }

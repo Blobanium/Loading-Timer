@@ -19,6 +19,7 @@ public class LoadingTimer implements ModInitializer {
     public static boolean advanceLoopControl = true;
 	private static double finalResultToast;
 	public static boolean resourcesLoaded = false;
+	public static double rawLoadingTime;
 
 	@Override
 	public void onInitialize() {
@@ -34,7 +35,7 @@ public class LoadingTimer implements ModInitializer {
 
     public static void lastMessage(){
 		TimeLogger.loggerMessage(2, finalResult, "");
-		double rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
+		rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
 		if (rawLoadingTime < 2.3) {
 			TimeLogger.loggerMessage(3, rawLoadingTime, ", your insane.");
 		} else {

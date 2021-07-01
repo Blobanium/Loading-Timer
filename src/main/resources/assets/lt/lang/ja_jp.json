@@ -1,6 +1,6 @@
 {
     "loading-timer.title": "Loading Timer",
-    "loading-timer.title_ee": "Loading Timer",
+    "loading-timer.easteregg.title": "Laoding Timer",
     "loading-timer.message_text": "Minecraftの読込に %d 秒かかりました",
     "loading-timer.world_message_text": "ワールドの生成/読込に %d 秒かかりました",
     "loading-timer.resource_loading_text": "リソースパックの読込に約 %d 秒かかりました",

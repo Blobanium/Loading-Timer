@@ -1,6 +1,6 @@
 {
     "loading-timer.title": "Loading Timer",
-    "loading-timer.title_ee": "Loading Timer",
+    "loading-timer.easteregg.title": "Laoding Timer",
     "loading-timer.message_text": "Minecraft запустился за %d секунд",
     "loading-timer.world_message_text": "Загрузка/генерация мира заняла %d секунд",
     "loading-timer.resource_loading_text": "Загрузка пакетов ресурсов заняла %d секунд",
