@@ -36,13 +36,11 @@ public class ToastExecutor {
     }
 
     private static void easterEggMods(){
-        if(lazydfu || smoothboot || dashloader){
-            if(lazydfu && smoothboot && dashloader){
-                if(LoadingTimer.rawLoadingTime < 5) {
-                    easterEggTranslatable = "loading-timer.easteregg.insane";
-                } else {
-                    LOGGER.info("Insanity Approaches..");
-                }
+        if(lazydfu && smoothboot && dashloader){
+            if(LoadingTimer.rawLoadingTime < 5) {
+                easterEggTranslatable = "loading-timer.easteregg.insane";
+            } else {
+                LOGGER.info("Insanity Approaches..");
             }
         }
     }
