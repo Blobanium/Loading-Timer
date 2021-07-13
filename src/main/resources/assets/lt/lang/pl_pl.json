@@ -1,6 +1,5 @@
 {
     "loading-timer.title": "Licznik czasu ładowania",
-    "loading-timer.easteregg.title": "Liczkin czasu łdaowania",
     "loading-timer.message_text": "Załadowanie Minecrafta zajęło %d sekund",
     "loading-timer.world_message_text": "Potrzeba było %d sekund, aby wczytać/wygenerować ten świat",
     "loading-timer.resource_loading_text": "Potrzeba było około %d sekund, aby załadować paczki zasobów",
@@ -16,5 +15,7 @@
     "loading-timer.config.resource_load_percent": "Procent ładowania zasobów",
     "loading-timer.config.resource_load_percent.description": "Wypisuje jak długo trwało ładowanie paczek zasobów.\nPodobnie, jak Minecraft pokazuje ile procent świata zostało załadowane w trybie jednoosobowym",
     "loading-timer.config.raw_loading_toast": "Pokazuj 'surowy' czas na powiadomieniu startowym",
-    "loading-timer.config.raw_loading_toast.description": "Zastąp 'całkowite' wartości pokazywane na starcie wartościami 'surowymi'"
+    "loading-timer.config.raw_loading_toast.description": "Zastąp 'całkowite' wartości pokazywane na starcie wartościami 'surowymi'",
+    "loading-timer.easteregg.title": "Liczkin czasu łdaowania",
+    "loading-timer.easteregg.insane": "Jesteś niesamowity."
 }
