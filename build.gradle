@@ -18,6 +18,10 @@ repositories {
 		url = "https://dl.bintray.com/ladysnake/libs"
 	}
 	maven{ url "https://maven.terraformersmc.com" }
+	maven {
+		name = 'TerraformersMC Archive'
+		url = 'https://raw.githubusercontent.com/TerraformersMC/Archive/main/releases/'
+	}
 }
 
 dependencies {
