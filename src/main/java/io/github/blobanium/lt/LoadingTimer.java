@@ -1,6 +1,7 @@
 package io.github.blobanium.lt;
 
 import io.github.blobanium.lt.config.ConfigReader;
+import io.github.blobanium.lt.mixin.BootstrapMixin;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.logging.TimeLogger;
 import io.github.blobanium.lt.util.math.MathUtil;
@@ -20,6 +21,8 @@ public class LoadingTimer implements ModInitializer {
 	private static double finalResultToast;
 	public static boolean resourcesLoaded = false;
 	public static double rawLoadingTime;
+	public static double finalBootstrapTime;
+	private static double finalFinalResult;
 
 	@Override
 	public void onInitialize() {
@@ -34,8 +37,9 @@ public class LoadingTimer implements ModInitializer {
     }
 
     public static void lastMessage(){
-		TimeLogger.loggerMessage(2, finalResult, "");
-		rawLoadingTime = MathUtil.roundValue(finalResult - loadMemory);
+		finalFinalResult = finalResult + finalBootstrapTime;
+		TimeLogger.loggerMessage(2, finalFinalResult, "");
+		rawLoadingTime = MathUtil.roundValue(finalFinalResult - loadMemory);
 		if (rawLoadingTime < 2.3) {
 			TimeLogger.loggerMessage(3, rawLoadingTime, ", your insane.");
 		} else {
@@ -44,7 +48,7 @@ public class LoadingTimer implements ModInitializer {
 		if(ConfigReader.rawLoadingToast){
 			finalResultToast = MathUtil.roundValue(rawLoadingTime);
 		} else {
-			finalResultToast = MathUtil.roundValue(finalResult);
+			finalResultToast = MathUtil.roundValue(finalFinalResult);
 		}
 		ToastExecutor.executeToast("loading-timer.message_text", finalResultToast);
 		timerDone = true;

@@ -1,5 +1,6 @@
 package io.github.blobanium.lt.mixin;
 
+import io.github.blobanium.lt.LoadingTimer;
 import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.util.math.MathUtil;
 import net.minecraft.Bootstrap;
@@ -18,7 +19,6 @@ public class BootstrapMixin {
 
     @Shadow @Final private static Logger LOGGER;
     private static long bootstrapTime;
-    private static double finalBootstrap;
 
     @Inject(at = @At("HEAD"), method = "initialize")
     private static void initializeStart(CallbackInfo ci){
@@ -32,11 +32,11 @@ public class BootstrapMixin {
     @Inject(at = @At("TAIL"), method = "initialize")
     private static void initializeEnd(CallbackInfo ci){
         if(ConfigReader.insanePrecision){
-            finalBootstrap = MathUtil.roundValue(System.nanoTime() - bootstrapTime) / 1000000000;
+            LoadingTimer.finalBootstrapTime = MathUtil.roundValue(System.nanoTime() - bootstrapTime) / 1000000000;
         } else {
-            finalBootstrap = MathUtil.roundValue(System.currentTimeMillis() - bootstrapTime) / 1000;
+            LoadingTimer.finalBootstrapTime = MathUtil.roundValue(System.currentTimeMillis() - bootstrapTime) / 1000;
         }
 
-        LOGGER.info ("Bootstrap Time: " + finalBootstrap + "s");
+        LOGGER.info ("Bootstrap Time: " + LoadingTimer.finalBootstrapTime + "s");
     }
 }
