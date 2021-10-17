@@ -4,6 +4,8 @@ import io.github.blobanium.lt.LoadingTimer;
 import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ServerAddress;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +13,7 @@ public class ResourceLoadingTimer {
     private static long resourceStartingTime;
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
     private static double resourceResult;
-    private static boolean resourcesLoaded = false;
+    public static boolean resourcesLoaded = false;
 
     public static void startTimer(){
         resourcesLoaded = false;
@@ -23,7 +25,7 @@ public class ResourceLoadingTimer {
     }
 
     public static void stopTimer(){
-        if(resourcesLoaded == false){
+        if(!resourcesLoaded){
             resourceResult = MathUtil.roundValue(MathUtil.calculateMain(resourceStartingTime));
             LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
             if(ConfigReader.resourceLoadNotif){

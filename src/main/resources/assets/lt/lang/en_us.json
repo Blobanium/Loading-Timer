@@ -17,5 +17,6 @@
     "loading-timer.config.raw_loading_toast": "Show 'Raw' Time On Startup Toast",
     "loading-timer.config.raw_loading_toast.description": "Replaces the 'total' values shown at startup with the 'raw' values",
     "loading-timer.easteregg.title": "Laoding Timer",
-    "loading-timer.easteregg.insane": "Your Insane."
+    "loading-timer.easteregg.insane": "Your Insane.",
+    "loading-timer.easteregg.mineclub": "Mineclub to the moon!"
 }

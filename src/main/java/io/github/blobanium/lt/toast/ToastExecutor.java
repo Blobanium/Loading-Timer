@@ -1,6 +1,7 @@
 package io.github.blobanium.lt.toast;
 
 import io.github.blobanium.lt.LoadingTimer;
+import io.github.blobanium.lt.resource.ResourceLoadingTimer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
@@ -19,6 +20,7 @@ public class ToastExecutor {
     public static void executeToast(String translatableDescription, double toastTimeValue){
         easterEggLaodingTimer();
         easterEggMods();
+        easterEggMineclub();
         SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT, new TranslatableText(easterEggTranslatable), new TranslatableText(translatableDescription, toastTimeValue));
         MinecraftClient.getInstance().getToastManager().add(toast);
     }
@@ -37,10 +39,18 @@ public class ToastExecutor {
 
     private static void easterEggMods(){
         if(lazydfu && smoothboot && dashloader){
-            if(LoadingTimer.rawLoadingTime < 5) {
+            if(LoadingTimer.rawLoadingTime < 9) {
                 easterEggTranslatable = "loading-timer.easteregg.insane";
             } else {
                 LOGGER.info("Insanity Approaches..");
+            }
+        }
+    }
+
+    private static void easterEggMineclub() {
+        if(!ResourceLoadingTimer.resourcesLoaded){
+            if(MinecraftClient.getInstance().getCurrentServerEntry().address.equals("play.mineclub.com")){
+                easterEggTranslatable = "loading-timer.easteregg.mineclub";
             }
         }
     }
