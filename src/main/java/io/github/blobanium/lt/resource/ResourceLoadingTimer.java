@@ -11,8 +11,10 @@ public class ResourceLoadingTimer {
     private static long resourceStartingTime;
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
     private static double resourceResult;
+    private static boolean resourcesLoaded = false;
 
     public static void startTimer(){
+        resourcesLoaded = false;
         if(ConfigReader.insanePrecision){
             resourceStartingTime = System.nanoTime();
         } else {
@@ -21,12 +23,15 @@ public class ResourceLoadingTimer {
     }
 
     public static void stopTimer(){
-        resourceResult = MathUtil.roundValue(MathUtil.calculateMain(resourceStartingTime));
-        LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
-        if(ConfigReader.resourceLoadNotif){
-            if(LoadingTimer.timerDone || ConfigReader.resourceLoadNotifStartupOverride){
-                ToastExecutor.executeToast("loading-timer.resource_loading_text", resourceResult);
+        if(resourcesLoaded == false){
+            resourceResult = MathUtil.roundValue(MathUtil.calculateMain(resourceStartingTime));
+            LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
+            if(ConfigReader.resourceLoadNotif){
+                if(LoadingTimer.timerDone || ConfigReader.resourceLoadNotifStartupOverride){
+                    ToastExecutor.executeToast("loading-timer.resource_loading_text", resourceResult);
+                }
             }
+            resourcesLoaded = true;
         }
     }
 }
