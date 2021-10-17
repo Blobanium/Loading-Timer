@@ -49,8 +49,12 @@ public class ToastExecutor {
 
     private static void easterEggMineclub() {
         if(!ResourceLoadingTimer.resourcesLoaded){
-            if(MinecraftClient.getInstance().getCurrentServerEntry().address.equals("play.mineclub.com")){
-                easterEggTranslatable = "loading-timer.easteregg.mineclub";
+            try {
+                if (MinecraftClient.getInstance().getCurrentServerEntry().address.equals("play.mineclub.com")) {
+                    easterEggTranslatable = "loading-timer.easteregg.mineclub";
+                }
+            } catch (NullPointerException e) {
+                LOGGER.debug("Suppressing Null warning");
             }
         }
     }
