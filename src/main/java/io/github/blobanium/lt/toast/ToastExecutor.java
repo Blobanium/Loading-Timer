@@ -39,7 +39,7 @@ public class ToastExecutor {
 
     private static void easterEggMods(){
         if(lazydfu && smoothboot && dashloader){
-            if(LoadingTimer.rawLoadingTime < 9) {
+            if(LoadingTimer.rawLoadingTime < 3) {
                 easterEggTranslatable = "loading-timer.easteregg.insane";
             } else {
                 LOGGER.info("Insanity Approaches..");

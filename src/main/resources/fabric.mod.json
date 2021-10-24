@@ -44,6 +44,9 @@
     "cloth-config2": "*",
     "minecraft": ["1.18.*"]
   },
+  "conflicts": {
+    "ksyxis": ["1.0"]
+  },
   "custom": {
     "vanguard": {
       "curse-project-id": "450817"

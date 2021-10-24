@@ -8,6 +8,7 @@
     "loading-timer.config.insane_precision.description": "Takes precision to a whole new level",
     "loading-timer.config.world_load_time": "World Loading Timer",
     "loading-timer.config.world_load_time.description": "Measures how long it takes to load into a world",
+    "loading-timer.config.world_load_time.conflict.ksyxiswarning":"Measures how long it takes to load into a world\n§4Your Install of Ksyxis may conflict with this option. \nIt is Strongly recomended that you update Ksyxis to 1.1+",
     "loading-timer.config.resource_load_notif": "Resource Loading Timer",
     "loading-timer.config.resource_load_notif.description": "Measures how long it takes to load into resource packs",
     "loading-timer.config.resource_load_notif_override": "Resource Loading Timer Startup Override",
