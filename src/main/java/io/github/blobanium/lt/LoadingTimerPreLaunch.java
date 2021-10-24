@@ -29,7 +29,7 @@ public class LoadingTimerPreLaunch implements PreLaunchEntrypoint {
         }
 
         if(FabricLoader.getInstance().isModLoaded("ksyxis")){
-            float ksyxisversion = Float.parseFloat(FabricLoader.getInstance().getModContainer("ksyxis").get().getMetadata().getVersion().getFriendlyString());
+            @SuppressWarnings("OptionalGetWithoutIsPresent") float ksyxisversion = Float.parseFloat(FabricLoader.getInstance().getModContainer("ksyxis").get().getMetadata().getVersion().getFriendlyString());
             if(ksyxisversion == 1.0){
                 LOGGER.warn("Ksyxis 1.0 may conflict with the option 'World Loading Timer', It is advised that you update Ksyxis to 1.1+ for full compatability.");
                 isConflictingKsysisLoaded = true;

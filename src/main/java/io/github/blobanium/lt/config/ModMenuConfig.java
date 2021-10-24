@@ -2,7 +2,7 @@ package io.github.blobanium.lt.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import io.github.blobanium.lt.LoadingTimerPreLaunch;
-import io.github.prospector.modmenu.api.ModMenuApi;
+import com.terraformersmc.modmenu.api.ModMenuApi;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
@@ -31,11 +31,9 @@ public class ModMenuConfig implements ModMenuApi {
             final ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
                 .setTitle(new TranslatableText("loading-timer.config"));
-    
-            builder.setSavingRunnable(() -> {
-                // Serialise the config into the config file. This will be called last after all variables are updated.
-                ConfigReader.refreshConfig();
-            });
+
+            // Serialise the config into the config file. This will be called last after all variables are updated.
+            builder.setSavingRunnable(ConfigReader::refreshConfig);
         
             ConfigEntryBuilder entryBuilder = builder.entryBuilder();
         
