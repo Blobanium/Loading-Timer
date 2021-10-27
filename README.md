@@ -2,6 +2,8 @@
 
 Find us on [Modrinth](https://modrinth.com/mod/loading-timer) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/loading-timer)!
 
+[Want to donate to my projects?](https://gist.github.com/Blobanium/190179ae9ee3d00f42aad2a86c37625c)
+
 [![Discord](https://img.shields.io/discord/815339970259845151?color=%237289DA&label=Discord&style=for-the-badge)](https://discord.gg/GkZtk5RkyG)
 
 ## What is this?
