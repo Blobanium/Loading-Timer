@@ -13,10 +13,6 @@ repositories {
 	maven { url 'https://jitpack.io' }
 	maven { url 'https://maven.thebrokenrail.com' }
 	maven { url "https://maven.shedaniel.me/" }
-	maven {
-		name = "Ladysnake Libs"
-		url = "https://dl.bintray.com/ladysnake/libs"
-	}
 	maven{ url "https://maven.terraformersmc.com" }
 }
 
