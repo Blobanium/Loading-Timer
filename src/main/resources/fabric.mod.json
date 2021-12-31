@@ -35,10 +35,10 @@
   "mixins": 
   ["loading-timer.mixins.json"],
   "depends": {
-    "fabricloader": ">=0.7.4",
-    "minecraft": ["1.17.*", "1.18.*"],
+    "fabricloader": ">=0.12.10",
+    "minecraft": ["1.18.*"],
     "fabric": "*",
-    "java": ">=16"
+    "java": ">=17"
   },
   "recommends":{
     "cloth-config2": "*",
@@ -46,18 +46,10 @@
   },
   "conflicts": {
     "ksyxis": ["1.0"]
-  },
-  "custom": {
-    "vanguard": {
-      "curse-project-id": "450817"
-    },
-    "modupdater": {
-      "strategy": "curseforge",
-      "projectID": 450817
     },
     "modmenu":{
       "links":{
-        "Discord": "https://discord.gg/GkZtk5RkyG" 
+        "Discord": "https://discord.gg/GkZtk5RkyG"
       }
     }
   }
