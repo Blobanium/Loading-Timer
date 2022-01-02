@@ -23,6 +23,7 @@ public class LoadingTimer implements ModInitializer {
 	public static double rawLoadingTime;
 	public static double finalBootstrapTime;
 	private static double finalFinalResult;
+	public static boolean GameLoaded = false;
 
 	@Override
 	public void onInitialize() {

@@ -11,16 +11,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
 public class LoadModMixin {
-	private static boolean GameLoaded = false;
 	private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
 
 	@Inject(at = @At("HEAD"), method = "init()V")
 	private void init(CallbackInfo info) {
 		LOGGER.debug("TitleScreen#init called, calling LoadingTimer.load");
 		LoadingTimer.load();
-		if (LoadingTimer.resourcesLoaded && !GameLoaded) {
+		if (LoadingTimer.resourcesLoaded && !LoadingTimer.GameLoaded) {
 			LoadingTimer.lastMessage();
-			GameLoaded = true;
+			LoadingTimer.GameLoaded = true;
 		}
 	}
 }
