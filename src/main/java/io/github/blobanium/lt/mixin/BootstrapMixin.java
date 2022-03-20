@@ -16,8 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Bootstrap.class)
 public class BootstrapMixin {
-
-    @Shadow @Final private static Logger LOGGER;
     private static long bootstrapTime;
 
     @Inject(at = @At("HEAD"), method = "initialize")
@@ -37,6 +35,6 @@ public class BootstrapMixin {
             LoadingTimer.finalBootstrapTime = MathUtil.roundValue(System.currentTimeMillis() - bootstrapTime) / 1000;
         }
 
-        LOGGER.info ("Bootstrap Time: " + LoadingTimer.finalBootstrapTime + "s");
+        LoadingTimer.LOGGER.info ("Bootstrap Time: " + LoadingTimer.finalBootstrapTime + "s");
     }
 }
