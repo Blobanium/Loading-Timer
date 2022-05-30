@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BootstrapMixin {
     private static long bootstrapTime;
 
-    @Inject(at = @At("HEAD"), method = "method_12851()V")
+    @Inject(at = @At("HEAD"), method = "method_12851")
     private static void initializeStart(CallbackInfo ci){
         if(ConfigReader.insanePrecision){
             bootstrapTime = System.nanoTime();
@@ -27,7 +27,7 @@ public class BootstrapMixin {
         }
     }
 
-    @Inject(at = @At("TAIL"), method = "method_12851()V")
+    @Inject(at = @At("TAIL"), method = "method_12851")
     private static void initializeEnd(CallbackInfo ci){
         if(ConfigReader.insanePrecision){
             LoadingTimer.finalBootstrapTime = MathUtil.roundValue(System.nanoTime() - bootstrapTime) / 1000000000;
