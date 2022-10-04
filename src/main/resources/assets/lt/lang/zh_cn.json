@@ -1,0 +1,23 @@
+{
+    "loading-timer.title": "加载时间",
+    "loading-timer.message_text": "Minecraft 花了 %d 秒加载",
+    "loading-timer.world_message_text": "游戏花了 %d 秒来进入/生成这个世界",
+    "loading-timer.resource_loading_text": "游戏花了大约 %d 秒来加载资源包",
+    "loading-timer.config": "加载时间模组配置菜单",
+    "loading-timer.config.insane_precision": "超级精确模式",
+    "loading-timer.config.insane_precision.description": "将精度提升到一个全新的水平",
+    "loading-timer.config.world_load_time": "世界加载计时器",
+    "loading-timer.config.world_load_time.description": "衡量加载到一个世界需要多长时间",
+    "loading-timer.config.world_load_time.conflict.ksyxiswarning":"衡量加载到一个世界需要多长时间\n§4您安装的 Ksyxis 可能与这个选项不兼容。 \n强烈建议您将 Ksyxis 更新到1.1以上版本",
+    "loading-timer.config.resource_load_notif": "资源包加载计时器",
+    "loading-timer.config.resource_load_notif.description": "衡量加载资源包所需的时间",
+    "loading-timer.config.resource_load_notif_override": "资源加载计时器启动覆盖",
+    "loading-timer.config.resource_load_notif_override.description": "通常，资源加载计时器不会在启动时显示，以防止太多的消息弹窗的困扰。\n\n除非手动启用“资源加载计时器”，否则此设置将不起作用",
+    "loading-timer.config.resource_load_percent": "资源加载百分比",
+    "loading-timer.config.resource_load_percent.description": "显示出资源包的加载进度。\n就像游戏在加载单人世界时显示出您加载世界的进度一样",
+    "loading-timer.config.raw_loading_toast": "在启动时显示“原始”时间",
+    "loading-timer.config.raw_loading_toast.description": "将启动时显示的“总计”值替换为“原始”值",
+    "loading-timer.easteregg.title": "迦傤莳涧",
+    "loading-timer.easteregg.insane": "你疯了。",
+    "loading-timer.easteregg.mineclub": "Mineclub 抵达了月球！"
+}
