@@ -5,7 +5,7 @@ import io.github.blobanium.lt.resource.ResourceLoadingTimer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +21,7 @@ public class ToastExecutor {
         easterEggLaodingTimer();
         easterEggMods();
         easterEggMineclub();
-        SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT, new TranslatableText(easterEggTranslatable), new TranslatableText(translatableDescription, toastTimeValue));
+        SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT, Text.translatable(easterEggTranslatable), Text.translatable(translatableDescription, toastTimeValue));
         MinecraftClient.getInstance().getToastManager().add(toast);
     }
 

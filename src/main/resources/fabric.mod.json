@@ -33,13 +33,12 @@
   ["loading-timer.mixins.json"],
   "depends": {
     "fabricloader": ">=0.12.10",
-    "minecraft": ["1.18.*"],
+    "minecraft": ["1.19.*"],
     "fabric": "*",
     "java": ">=17"
   },
   "recommends":{
-    "cloth-config2": "*",
-    "minecraft": ["1.18.*"]
+    "cloth-config2": "*"
   },
   "conflicts": {
     "ksyxis": ["1.0"]
