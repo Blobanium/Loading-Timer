@@ -10,7 +10,8 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
-repositories { 
+repositories {
+	mavenCentral()
 	maven { url 'https://jitpack.io' }
 	maven { url "https://maven.shedaniel.me/" }
 	maven{ url "https://maven.terraformersmc.com" }
@@ -24,6 +25,7 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	testRuntimeOnly("io.github.llamalad7:mixinextras-fabric:0.2.2")
 }
 
 processResources {
@@ -41,7 +43,7 @@ tasks.withType(JavaCompile).configureEach {
 	// If Javadoc is generated, this must be specified in that task too.
 	it.options.encoding = "UTF-8"
 
-	it.options.release = 16
+	it.options.release = 17
 }
 
 java {

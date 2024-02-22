@@ -1,12 +1,14 @@
 package io.github.blobanium.lt.timestamp;
 
 public class Timestamp {
+    private final Timestamps type;
     private final long timeInMillis;
     private final long timeInNano;
 
-    public Timestamp(){
+    public Timestamp(Timestamps type){
         timeInNano = System.nanoTime();
         timeInMillis = System.currentTimeMillis();
+        this.type = type;
     }
 
     public long getTimeInMillis() {
@@ -15,5 +17,9 @@ public class Timestamp {
 
     public long getTimeInNano() {
         return timeInNano;
+    }
+
+    public Timestamps getType() {
+        return type;
     }
 }

@@ -18,22 +18,13 @@
   "entrypoints": {
     "main": [
       "io.github.blobanium.lt.LoadingTimer"
-    ],
-    "server":[
-      "io.github.blobanium.lt.LoadingTimerServer"
-    ],
-    "preLaunch":[
-      "io.github.blobanium.lt.LoadingTimerPreLaunch"
-    ],
-    "modmenu": [
-      "io.github.blobanium.lt.config.ModMenuConfig"
     ]
   },
   "mixins": 
   ["loading-timer.mixins.json"],
   "depends": {
     "fabricloader": ">=0.12.10",
-    "minecraft": ["1.19.*"],
+    "minecraft": ["1.20.*"],
     "fabric": "*",
     "java": ">=17"
   },
